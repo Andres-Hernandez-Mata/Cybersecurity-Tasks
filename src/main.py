@@ -51,10 +51,9 @@ def menu():
                 print(colored("Envío de Correos", "red", attrs=["bold"]))
             elif opcion == "5" or opcion == "05":
                 print(colored("Obtención de Metadatos", "red", attrs=["bold"]))
-            elif opcion == "6" or opcion == "06":
-                tiempo = datetime.now()
-                print(colored(str(tiempo) + " [INFO] By Andrés Hernández Mata | Versión 1.1.0 | LSTI", "yellow", attrs=["bold"]))
-                print(colored(str(tiempo) + " [INFO] Gracias", "yellow", attrs=["bold"]))
+            elif opcion == "6" or opcion == "06":                
+                print(colored(str(datetime.now()) + " [INFO] By Andrés Hernández Mata | Versión 1.1.0 | LSTI", "yellow", attrs=["bold"]))
+                print(colored(str(datetime.now()) + " [INFO] Gracias", "yellow", attrs=["bold"]))
                 break                
             else:
                 os.system("cls")
