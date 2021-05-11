@@ -6,93 +6,146 @@ Python: 3.9.1
 Fecha: 10 Mayo 2020
 """
 
-import argparse
 import os
 from datetime import datetime
-import detect_spanish
+from colorama import Fore
+from colorama import Style
+import pyfiglet as header
+from termcolor import colored
+from detectspanish
 
-def main():
-    os.system("cls")
-    print(datetime.now(), "\033[0;32m [INFO] Iniciando... \033[0;0m")
-    description = """Example -modo e -mensaje 'Hola Mundo' -clave 3 \nExample -modo d -mensaje 'Krod Pxqgr' -clave 3 \nExample -modo h -mensaje 'Hola Mundo'"""
-    parser = argparse.ArgumentParser(description='Cifrado cesar', epilog=description, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("-modo", metavar='--modo', dest="modo", help="Modo para e (encriptar), d (desencriptar) o h (hackear)", required=True)
-    parser.add_argument("-mensaje", metavar='--mensaje', dest="mensaje", help="Mensaje para cifrar, desencriptar o para hackear", required=True)
-    parser.add_argument("-clave", metavar='--clave', dest="clave", help="Clave para cifrar o descifrar el mensaje, default clave 3", default="3")
-    params = parser.parse_args()
+class Cesar:
+
+    def cesar(self, mensaje, modo, clave):               
+        try:            
+        
+            simbolos = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
+            resultado = ""
+                
+            for simbolo in mensaje:
+                if simbolo in simbolos:
+                    indice_simbolo = simbolos.find(simbolo)
+                    # Encriptar
+                    if modo:
+                        print(datetime.now(), "\033[0;32m [INFO] Encriptando mensaje... \033[0;0m")
+                        indice_nuevo = indice_simbolo + int(clave)
+                    # Desencriptar
+                    elif not modo:
+                        print(datetime.now(), "\033[0;32m [INFO] Desencriptando mensaje... \033[0;0m")
+                        indice_nuevo = indice_simbolo - int(clave)
+
+                    if indice_nuevo >= len(simbolos):
+                        indice_nuevo = indice_nuevo - len(simbolos)
+                    elif indice_nuevo < 0:
+                        indice_nuevo = indice_nuevo + len(simbolos)
+                    resultado = resultado + simbolos[indice_nuevo]
+                else:
+                    resultado = resultado + simbolo    
+        
+        except Exception as error:
+            print(colored("[ERROR] Ha ocurrido un error", "red", attrs=["bold"]))
+            print(colored(error, "red", attrs=["bold"]))        
+        
+        return resultado, mensaje
+
+    def hackear():        
+        try:
+
+            while True:            
+                mensaje = input("Mensaje > ")                
+                if not mensaje:
+                    break
+                print(colored("[INFO] El mensaje es un dato obligatorio", "red", attrs=["bold"]))        
+        
+            for clave in range(1, len(mensaje)):        
+                decrypted_text = cesar(False)
+                print(datetime.now(), "\033[0;32m [INFO] Clave #%s \033[0;0m %s" % (clave, decryptedText))
+
+                if detectspanish.isSpanish(decrypted_text):
+                    print()
+                    print("Posible mensaje descifrado: ")
+                    print("Clave %s: %s" % (clave, decrypted_text[:100]))
+                    print()
+                    print("¿Si?")
+                    response = input("> ")
+                    print()
+
+                    if response.strip().upper().startswith("SI"):
+                        return decrypted_text, mensaje
+
+        except Exception as error:
+            print(colored("[ERROR] Ha ocurrido un error", "red", attrs=["bold"]))
+            print(colored(error, "red", attrs=["bold"]))        
+
+        return None
     
-    if params.modo == 'e':
-        print(datetime.now(), "\033[0;32m [INFO] Encriptando mensaje... \033[0;0m")
-        resultado = cesar(params.mensaje,True,params.clave)
-        print(datetime.now(), "\033[0;33m [INFO] %s \033[0;0m" % params.mensaje)
-        print(datetime.now(), "\033[0;36m [INFO] %s \033[0;0m" % resultado)
-    elif params.modo == 'd':
-        print(datetime.now(), "\033[0;32m [INFO] Desencriptando mensaje... \033[0;0m")
-        resultado = cesar(params.mensaje,False,params.clave)
-        print(datetime.now(), "\033[0;33m [INFO] %s \033[0;0m" % params.mensaje)
-        print(datetime.now(), "\033[0;36m [INFO] %s \033[0;0m" % resultado)
-    elif params.modo == 'h':
-        print(datetime.now(), "\033[0;32m [INFO] Hackeando mensaje... \033[0;0m")
-        resultado = hackear(params.mensaje)
-        print(datetime.now(), "\033[0;33m [INFO] %s \033[0;0m" % params.mensaje)
-        if resultado == None:
-            print(datetime.now(), "\033[0;91m [INFO] El mensaje descifrado no es parte del idioma en español \033[0;0m")
-            quit()
-        print(datetime.now(), "\033[0;36m [INFO] %s \033[0;0m" % resultado)    
-    else:
-        print(datetime.now(), "\033[0;91m [INFO] Seleccione el modo correcto... \033[0;0m")        
-        quit()
+    def datos():
+        try:
 
-    print(datetime.now(), "\033[0;32m [INFO] Success \033[0;0m")
+            while True:            
+                mensaje = input("Mensaje > ")
+                clave = int(input("Clave > "))
+                if not mensaje or not clave:
+                    break
+                print(colored("[INFO] El mensaje y clave son datos obligatorios", "red", attrs=["bold"]))
+        
+        except ValueError:
+            print(colored("[ERROR] Ha ocurrido un error", "red", attrs=["bold"]))
+            print(colored("[ERROR] Por favor, ingresar los datos solicitados", "red", attrs=["bold"]))
+        
+        return mensaje, clave
 
-def hackear(mensaje):
-    for clave in range(1, len(mensaje)):        
-        decryptedText = cesar(mensaje,False,clave)
-        print(datetime.now(), "\033[0;32m [INFO] Clave #%s \033[0;0m %s" % (clave, decryptedText))
+    def selecciona():
+        try:
 
-        if detect_spanish.isSpanish(decryptedText):
-            print()
-            print('Posible mensaje descifrado:')
-            print('Clave %s: %s' % (clave, decryptedText[:100]))
-            print()
-            print('¿Si?')
-            response = input('> ')
-            print()
+            opcion = 0
+            while True:                
+                opcion = int(input("[**] Elige una opción > "))
+                if not opcion:
+                    break
+                print(colored("[INFO] Seleccionar una opcion del menu", "red", attrs=["bold"]))
+        except ValueError:
+            print(colored("[ERROR] Ha ocurrido un error", "red", attrs=["bold"]))
+            print(colored("[ERROR] Por favor, ingresar los datos solicitados", "red", attrs=["bold"]))
 
-            if response.strip().upper().startswith('SI'):
-                return decryptedText
-
-    return None
-
-def cesar(mensaje,modo,clave):
-    simbolos = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890'
-    resultado = ''
+        return opcion
     
-    try:
-        for simbolo in mensaje:
-            if simbolo in simbolos:
-                indice_simbolo = simbolos.find(simbolo)
-                # Encriptar
-                if modo:
-                    indice_nuevo = indice_simbolo + int(clave)
-                # Desencriptar
-                elif not modo:
-                    indice_nuevo = indice_simbolo - int(clave)
+    def menu():
+        opcion = 0
+        try:
+            while True:
+                print(colored("[01] Encriptar", "green", attrs=["bold"]))
+                print(colored("[02] Desencriptar", "green", attrs=["bold"]))
+                print(colored("[03] Hackear", "green", attrs=["bold"]))
+                print(colored("[04] Salir", 'green', attrs=["bold"]))
+                opcion = selecciona()
+                cifrar = bool()
 
-                if indice_nuevo >= len(simbolos):
-                    indice_nuevo = indice_nuevo - len(simbolos)
-                elif indice_nuevo < 0:
-                    indice_nuevo = indice_nuevo + len(simbolos)
-                resultado = resultado + simbolos[indice_nuevo]
-            else:
-                resultado = resultado + simbolo    
-    except Exception as error:
-        print(datetime.now(), "\033[0;91m [ERROR] Ha ocurrido un error")
-        print(error)
-        quit()
-    
-    return resultado
-
-if __name__ == "__main__":    
-    main()
-
+                if opcion == 1:
+                    print(datetime.now(), "\033[0;32m [INFO] Iniciando... \033[0;0m")
+                    cifrar = True
+                    mensaje, clave = datos()
+                    resultado, mensaje = cesar(mensaje, cifrar, clave)
+                    print(datetime.now(), "\033[0;33m [INFO] %s \033[0;0m" % mensaje)
+                    print(datetime.now(), "\033[0;36m [INFO] %s \033[0;0m" % resultado)
+                elif opcion == 2:
+                    print(datetime.now(), "\033[0;32m [INFO] Iniciando... \033[0;0m")
+                    cifrar = False
+                    mensaje, clave = datos()
+                    resultado, mensaje = cesar(mensaje, cifrar, clave)
+                    print(datetime.now(), "\033[0;33m [INFO] %s \033[0;0m" % mensaje)
+                    print(datetime.now(), "\033[0;36m [INFO] %s \033[0;0m" % resultado)
+                elif opcion == 3:
+                    print(datetime.now(), "\033[0;32m [INFO] Hackeando mensaje... \033[0;0m")
+                    resultado, mensaje = hackear()
+                    if resultado == None:
+                        print(datetime.now(), "\033[0;91m [INFO] El mensaje descifrado no es parte del idioma en español \033[0;0m")
+                    print(datetime.now(), "\033[0;33m [INFO] %s \033[0;0m" % mensaje)        
+                    print(datetime.now(), "\033[0;36m [INFO] %s \033[0;0m" % resultado)    
+                elif opcion == 4:                                        
+                    print(colored("[INFO] Bye...", 'red', attrs=['bold']))
+                    break
+                else:                    
+                    print(colored("[INFO] Introduce una opcion valida del menu", 'red', attrs=['bold']))
+        except Exception as error:
+            print(colored(error, 'red', attrs=['bold']))
