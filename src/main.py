@@ -37,7 +37,7 @@ def main():
             print(colored("[03] Cifrado de Mensajes", "green", attrs=["bold"]))
             print(colored("[04] Envío de Correos", "green", attrs=["bold"]))
             print(colored("[05] Obtención de Metadatos", "green", attrs=["bold"]))
-            print(colored("[06] Salir", 'green', attrs=["bold"]))
+            print(colored("[06] Salir", "green", attrs=["bold"]))
             opcion = option()
             if opcion == "1" or opcion == "01":
                 print(colored("%s Web Scraping" % datetime.now(), "red", attrs=["bold"]))
@@ -50,7 +50,7 @@ def main():
             elif opcion == "5" or opcion == "05":
                 print(colored("%s Obtención de Metadatos" % datetime.now(), "red", attrs=["bold"]))
             elif opcion == "6" or opcion == "06":
-                print(colored("%s [INFO] By Andrés Hernández Mata | Versión 1.2.0 | LSTI " % datetime.now(), "blue", attrs=["bold"]))
+                print(colored("%s [INFO] By Andrés Hernández Mata | Versión 1.2.0 | LSTI" % datetime.now(), "blue", attrs=["bold"]))
                 print(colored("%s [INFO] Gracias" % datetime.now(), "blue", attrs=["bold"]))
                 break
             else:
