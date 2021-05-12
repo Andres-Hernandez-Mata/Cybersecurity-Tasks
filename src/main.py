@@ -14,6 +14,8 @@ from termcolor import colored
 from datetime import datetime
 from criptografia.cesar import Cesar
 
+clear = lambda: os.system("cls" if os.name=="nt" else "clear")
+
 def option():
     try:
         while True:
@@ -56,11 +58,12 @@ def main():
     
     except Exception as error:
         print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-        print(colored(error, 'red', attrs=['bold']))
+        print(colored(error, "red", attrs=["bold"]))
     except KeyboardInterrupt:
         quit()
 
-if __name__ == "__main__":
+if __name__ == "__main__":    
+    clear()
     banner = header.figlet_format("Cybersecurity Tasks")
     print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))
     main()
