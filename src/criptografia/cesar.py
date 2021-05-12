@@ -12,7 +12,7 @@ from colorama import Fore
 from colorama import Style
 import pyfiglet as header
 from termcolor import colored
-from detectspanish
+from criptografia.spanish import Spanish
 
 class Cesar:
 
@@ -61,7 +61,8 @@ class Cesar:
                 decrypted_text = cesar(False)
                 print(datetime.now(), "\033[0;32m [INFO] Clave #%s \033[0;0m %s" % (clave, decryptedText))
 
-                if detectspanish.isSpanish(decrypted_text):
+                detect_spanish = Spanish()
+                if detect_spanish.spanish(decrypted_text):
                     print()
                     print("Posible mensaje descifrado: ")
                     print("Clave %s: %s" % (clave, decrypted_text[:100]))
