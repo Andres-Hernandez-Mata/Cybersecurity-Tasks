@@ -12,30 +12,22 @@ from colorama import Style
 import pyfiglet as header
 from termcolor import colored
 from datetime import datetime
-import criptografia.cesar
+from criptografia.cesar import Cesar
 
-def inicio():
-    os.system("cls")
-    banner = header.figlet_format("Cybersecurity Tasks")
-    print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))
-
-def selecciona():
+def option():
     try:
-
-        opcion = 0
         while True:
             opcion = input("[**] Elige una opción > ")
-            if not opcion:
+            if opcion:                
                 break
             print(colored("[INFO] Seleccionar una opcion del menu", "red", attrs=["bold"]))
+    
     except Exception:
         print(colored("[ERROR] Ha ocurrido un error", "red", attrs=["bold"]))
         print(colored("[ERROR] Introduce un numero entero", "red", attrs=["bold"]))
     return opcion
 
-def main():    
-    opcion = 0
-    inicio()
+def main():
     try:
         while True:
             print(colored("[01] Web Scraping", "green", attrs=["bold"]))
@@ -44,27 +36,31 @@ def main():
             print(colored("[04] Envío de Correos", "green", attrs=["bold"]))
             print(colored("[05] Obtención de Metadatos", "green", attrs=["bold"]))
             print(colored("[06] Salir", 'green', attrs=["bold"]))
-            opcion = selecciona()
+            opcion = option()
             if opcion == "1" or opcion == "01":
-                print(colored("Web Scraping", "red", attrs=["bold"]))
+                print(colored("%s Web Scraping" % datetime.now(), "red", attrs=["bold"]))
             elif opcion == "2" or opcion == "02":
-                print(colored("Escaneo de Puertos", "red", attrs=["bold"]))
+                print(colored("%s Escaneo de Puertos" % datetime.now(), "red", attrs=["bold"]))
             elif opcion == "3" or opcion == "03":
-                print(colored("Cifrado de Mensajes", "red", attrs=["bold"]))
+                print(colored("%s Cifrado de Mensajes" % datetime.now(), "red", attrs=["bold"]))
             elif opcion == "4" or opcion == "04":
-                print(colored("Envío de Correos", "red", attrs=["bold"]))
+                print(colored("%s Envío de Correos" % datetime.now(), "red", attrs=["bold"]))
             elif opcion == "5" or opcion == "05":
-                print(colored("Obtención de Metadatos", "red", attrs=["bold"]))
+                print(colored("%s Obtención de Metadatos" % datetime.now(), "red", attrs=["bold"]))
             elif opcion == "6" or opcion == "06":
-                print(colored(str(datetime.now()) + " [INFO] By Andrés Hernández Mata | Versión 1.1.0 | LSTI", "yellow", attrs=["bold"]))
-                print(colored(str(datetime.now()) + " [INFO] Gracias", "yellow", attrs=["bold"]))
+                print(colored("%s [INFO] By Andrés Hernández Mata | Versión 1.2.0 | LSTI " % datetime.now(), "blue", attrs=["bold"]))
+                print(colored("%s [INFO] Gracias" % datetime.now(), "blue", attrs=["bold"]))
                 break
             else:
-                os.system("cls")
-                print(colored("[INFO] Por favor, introduce una opcion valida", "red", attrs=["bold"]))
+                print(colored("%s [INFO] Por favor, introduce una opcion valida" % datetime.now(), "red", attrs=["bold"]))
+    
     except Exception as error:
-        print(colored("[ERROR] Ha ocurrido un error", "red", attrs=["bold"]))
+        print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
         print(colored(error, 'red', attrs=['bold']))
+    except KeyboardInterrupt:
+        quit()
 
 if __name__ == "__main__":
+    banner = header.figlet_format("Cybersecurity Tasks")
+    print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))
     main()
