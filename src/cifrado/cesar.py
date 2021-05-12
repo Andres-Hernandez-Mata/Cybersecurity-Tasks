@@ -12,7 +12,7 @@ from colorama import Fore
 from colorama import Style
 import pyfiglet as header
 from termcolor import colored
-from criptografia.spanish import Spanish
+from cifrado.spanish import Spanish
 
 class Cesar:
 

@@ -12,7 +12,7 @@ from colorama import Style
 import pyfiglet as header
 from termcolor import colored
 from datetime import datetime
-from criptografia.cesar import Cesar
+from cifrado.cesar import Cesar
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 

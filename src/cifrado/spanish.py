@@ -12,7 +12,7 @@ class Spanish:
     letters_and_space = upper_letters + upper_letters.lower() + ' \t\n'
 
     def load_dictionary():    
-        dictionary_file = open("criptografia\spanish.txt", encoding="utf8")    
+        dictionary_file = open("cifrado\spanish.txt", encoding="utf8")    
         spanish_words = {}
         for word in dictionary_file.read().split("\n"):
             word = word.upper()
