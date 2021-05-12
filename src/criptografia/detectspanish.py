@@ -8,44 +8,44 @@ Fecha: 11 Mayo 2020
 
 class Spanish:
     
-    UPPERLETTERS = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚÄËÏÖÜ"
-    LETTERS_AND_SPACE = UPPERLETTERS + UPPERLETTERS.lower() + ' \t\n'
+    upper_letters = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚÄËÏÖÜ"
+    letters_and_space = upper_letters + upper_letters.lower() + ' \t\n'
 
-    def loadDictionary():    
-        dictionaryFile = open("dictEsp.txt", encoding="utf8")    
-        spanishWords = {}
-        for word in dictionaryFile.read().split("\n"):
+    def load_dictionary():    
+        dictionary_file = open("dictEsp.txt", encoding="utf8")    
+        spanish_words = {}
+        for word in dictionary_file.read().split("\n"):
             word = word.upper()
-            spanishWords[word] = None
-        dictionaryFile.close()
-        return spanishWords
+            spanish_words[word] = None
+        dictionary_file.close()
+        return spanish_words
 
-    SPANISH_WORDS = loadDictionary()
+    spanish_words = load_dictionary()
 
-    def getSpanishCount(message):
+    def get_spanish_count(self, message):
         message = message.upper()    
-        message = removeNonLetters(message)    
-        possibleWords = message.split()    
+        message = remove_non_letters(message)    
+        possible_words = message.split()    
         
-        if possibleWords == []:
+        if possible_words == []:
             return 0.0
 
         matches = 0
-        for word in possibleWords:        
-            if word in SPANISH_WORDS:
+        for word in possible_words:        
+            if word in spanish_words:
                 matches += 1
-        return float(matches) / len(possibleWords)
+        return float(matches) / len(possible_words)
 
-    def removeNonLetters(message):
-        lettersOnly = []
+    def remove_non_letters(self, message):
+        letters_only = []
         for symbol in message:
-            if symbol in LETTERS_AND_SPACE:
-                lettersOnly.append(symbol)
-        return ''.join(lettersOnly)
+            if symbol in letters_and_space:
+                letters_only.append(symbol)
+        return ''.join(letters_only)
 
-    def isSpanish(message, wordPercentage=20, letterPercentage=85): 
-        wordsMatch = getSpanishCount(message) * 100 >= wordPercentage    
-        numLetters = len(removeNonLetters(message))
-        messageLettersPercentage = float(numLetters) / len(message) * 100
-        lettersMatch = messageLettersPercentage >= letterPercentage
-        return wordsMatch and lettersMatch
+    def spanish(self, message, word_percentage=20, letter_percentage=85): 
+        words_match = get_spanish_count(message) * 100 >= word_percentage    
+        num_letters = len(remove_non_letters(message))
+        message_letters_percentage = float(num_letters) / len(message) * 100
+        letters_match = message_letters_percentage >= letter_percentage
+        return words_match and letters_match
