@@ -33,6 +33,9 @@ def option():
 def main():
     try:
         while True:
+            clear()
+            banner = header.figlet_format("Cybersecurity Tasks")
+            print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))
             print(colored("[01] Web Scraping", "green", attrs=["bold"]))
             print(colored("[02] Escaneo de Puertos", "green", attrs=["bold"]))
             print(colored("[03] Cifrado de Mensajes", "green", attrs=["bold"]))
@@ -65,8 +68,5 @@ def main():
     except KeyboardInterrupt:
         quit()
 
-if __name__ == "__main__":    
-    clear()
-    banner = header.figlet_format("Cybersecurity Tasks")
-    print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))
+if __name__ == "__main__":        
     main()
