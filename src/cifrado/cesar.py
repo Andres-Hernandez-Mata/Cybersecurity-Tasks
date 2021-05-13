@@ -28,11 +28,11 @@ class Cesar:
                     indice_simbolo = simbolos.find(simbolo)
                     # Encriptar
                     if modo:
-                        print(datetime.now(), "\033[0;32m [INFO] Encriptando mensaje... \033[0;0m")
+                        print("%s [INFO] Encriptando mensaje... " % datetime.now())
                         indice_nuevo = indice_simbolo + int(clave)
                     # Desencriptar
                     elif not modo:
-                        print(datetime.now(), "\033[0;32m [INFO] Desencriptando mensaje... \033[0;0m")
+                        print("%s [INFO] Desencriptando mensaje... " % datetime.now())
                         indice_nuevo = indice_simbolo - int(clave)
 
                     if indice_nuevo >= len(simbolos):
@@ -44,7 +44,7 @@ class Cesar:
                     resultado = resultado + simbolo    
         
         except Exception as error:
-            print(colored("[ERROR] Ha ocurrido un error", "red", attrs=["bold"]))
+            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored(error, "red", attrs=["bold"]))        
         
         return resultado, mensaje
@@ -55,11 +55,11 @@ class Cesar:
                 mensaje = input("Mensaje > ")                
                 if not mensaje:
                     break
-                print(colored("[INFO] El mensaje es un dato obligatorio", "red", attrs=["bold"]))        
+                print(colored("%s [INFO] El mensaje es un dato obligatorio" % datetime.now(), "red", attrs=["bold"]))        
         
             for clave in range(1, len(mensaje)):        
                 decrypted_text = cesar(False)
-                print(datetime.now(), "\033[0;32m [INFO] Clave #%s \033[0;0m %s" % (clave, decryptedText))
+                print("%s [INFO] Clave #%s \033[0;0m %s" % (datetime.now(), clave, decryptedText))
 
                 detect_spanish = Spanish()
                 if detect_spanish.spanish(decrypted_text):
@@ -75,7 +75,7 @@ class Cesar:
                         return decrypted_text, mensaje
 
         except Exception as error:
-            print(colored("[ERROR] Ha ocurrido un error", "red", attrs=["bold"]))
+            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored(error, "red", attrs=["bold"]))        
 
         return None
@@ -87,11 +87,14 @@ class Cesar:
                 clave = int(input("Clave > "))
                 if not mensaje or not clave:
                     break
-                print(colored("[INFO] El mensaje y clave son datos obligatorios", "red", attrs=["bold"]))
+                print(colored("%s [INFO] El mensaje y clave son datos obligatorios" % datetime.now(), "red", attrs=["bold"]))
         
+        except Exception as error:
+            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
+            print(colored(error, "red", attrs=["bold"]))
         except ValueError:
-            print(colored("[ERROR] Ha ocurrido un error", "red", attrs=["bold"]))
-            print(colored("[ERROR] Por favor, ingresar los datos solicitados", "red", attrs=["bold"]))
+            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
+            print(colored("%s [ERROR] Por favor, ingresar los datos solicitados" % datetime.now(), "red", attrs=["bold"]))
         
         return mensaje, clave
 
@@ -100,17 +103,20 @@ class Cesar:
             opcion = 0
             while True:
                 opcion = int(input("[**] Elige una opción > "))
-                if not opcion:
+                if opcion:
                     break
-                print(colored("[INFO] Seleccionar una opcion del menu", "red", attrs=["bold"]))
+                print(colored("%s [INFO] Seleccionar una opcion del menu" % datetime.now(), "red", attrs=["bold"]))
         
+        except Exception as error:
+            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
+            print(colored(error, "red", attrs=["bold"]))
         except ValueError:
-            print(colored("[ERROR] Ha ocurrido un error", "red", attrs=["bold"]))
-            print(colored("[ERROR] Por favor, ingresar los datos solicitados", "red", attrs=["bold"]))
+            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
+            print(colored("%s [ERROR] Por favor, ingresar los datos solicitados" % datetime.now(), "red", attrs=["bold"]))
 
         return opcion
     
-    def menu(self):
+    def menu():
         clear()
         banner = header.figlet_format("Cesar")
         print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))
@@ -126,31 +132,31 @@ class Cesar:
                 cifrar = bool()
 
                 if opcion == 1:
-                    print(datetime.now(), "\033[0;32m [INFO] Iniciando... \033[0;0m")
+                    print("%s [INFO] Iniciando... " % datetime.now())
                     cifrar = True
                     mensaje, clave = cesar.datos()
                     resultado, mensaje = cesar(mensaje, cifrar, clave)
-                    print(datetime.now(), "\033[0;33m [INFO] %s \033[0;0m" % mensaje)
-                    print(datetime.now(), "\033[0;36m [INFO] %s \033[0;0m" % resultado)
+                    print("%s [INFO] %s " % (datetime.now(), mensaje))
+                    print("%s [INFO] %s " % (datetime.now(), resultado))
                 elif opcion == 2:
-                    print(datetime.now(), "\033[0;32m [INFO] Iniciando... \033[0;0m")
+                    print("%s [INFO] Iniciando... " % datetime.now())
                     cifrar = False
                     mensaje, clave = cesar.datos()
                     resultado, mensaje = cesar(mensaje, cifrar, clave)
-                    print(datetime.now(), "\033[0;33m [INFO] %s \033[0;0m" % mensaje)
-                    print(datetime.now(), "\033[0;36m [INFO] %s \033[0;0m" % resultado)
+                    print("%s [INFO] %s " % (datetime.now(), mensaje))
+                    print("%s [INFO] %s " % (datetime.now(), resultado))
                 elif opcion == 3:
-                    print(datetime.now(), "\033[0;32m [INFO] Hackeando mensaje... \033[0;0m")
+                    print("%s [INFO] Hackeando mensaje... " % datetime.now())
                     resultado, mensaje = cesar.hackear()
                     if resultado == None:
-                        print(datetime.now(), "\033[0;91m [INFO] El mensaje descifrado no es parte del idioma en español \033[0;0m")
-                    print(datetime.now(), "\033[0;33m [INFO] %s \033[0;0m" % mensaje)        
-                    print(datetime.now(), "\033[0;36m [INFO] %s \033[0;0m" % resultado)    
+                        print("%s [INFO] El mensaje descifrado no es parte del idioma en español" % datetime.now())
+                    print("%s [INFO] %s " % (datetime.now(), mensaje))
+                    print("%s [INFO] %s " % (datetime.now(), resultado))
                 elif opcion == 4:                                        
-                    print(colored("[INFO] Bye...", 'red', attrs=['bold']))
+                    print(colored("%s [INFO] Bye..." % datetime.now(), 'red', attrs=['bold']))
                     break
                 else:                    
-                    print(colored("[INFO] Introduce una opcion valida del menu", 'red', attrs=['bold']))
+                    print(colored("%s [INFO] Introduce una opcion valida del menu" % datetime.now(), "red", attrs=["bold"]))
         
         except Exception as error:
             print(colored(error, 'red', attrs=['bold']))
