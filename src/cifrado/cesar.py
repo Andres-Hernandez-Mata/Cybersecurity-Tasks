@@ -1,15 +1,13 @@
 """
 Uso: Cifrado César
 Creado: Andrés Hernández Mata
-Version: 1.0.0
+Version: 2.0.0
 Python: 3.9.1
 Fecha: 10 Mayo 2020
 """
 
 import os
 from datetime import datetime
-from colorama import Fore
-from colorama import Style
 import pyfiglet as header
 from termcolor import colored
 from cifrado.spanish import Spanish
@@ -27,12 +25,10 @@ class Cesar:
                 if simbolo in simbolos:
                     indice_simbolo = simbolos.find(simbolo)
                     # Encriptar
-                    if modo:
-                        print("%s [INFO] Encriptando mensaje... " % datetime.now())
+                    if modo:                        
                         indice_nuevo = indice_simbolo + int(clave)
                     # Desencriptar
-                    elif not modo:
-                        print("%s [INFO] Desencriptando mensaje... " % datetime.now())
+                    elif not modo:                        
                         indice_nuevo = indice_simbolo - int(clave)
 
                     if indice_nuevo >= len(simbolos):
@@ -49,43 +45,44 @@ class Cesar:
         
         return resultado, mensaje
 
-    def hackear():        
+    def hackear(self):        
         try:
             while True:            
                 mensaje = input("Mensaje > ")                
-                if not mensaje:
+                if mensaje:
                     break
                 print(colored("%s [INFO] El mensaje es un dato obligatorio" % datetime.now(), "red", attrs=["bold"]))        
         
-            for clave in range(1, len(mensaje)):        
-                decrypted_text = cesar(False)
-                print("%s [INFO] Clave #%s \033[0;0m %s" % (datetime.now(), clave, decryptedText))
+            cifrado = Cesar()
+            for clave in range(1, len(mensaje)):    
+                resultado, mensaje = cifrado.cesar(mensaje, False, clave)
+                print(colored("%s [INFO] Clave #%s %s" % (datetime.now(), clave, resultado), "yellow", attrs=["bold"]))
 
                 detect_spanish = Spanish()
-                if detect_spanish.spanish(decrypted_text):
+                if detect_spanish.spanish(resultado):
                     print()
                     print("Posible mensaje descifrado: ")
-                    print("Clave %s: %s" % (clave, decrypted_text[:100]))
+                    print("Clave %s: %s" % (clave, resultado[:100]))
                     print()
                     print("¿Si?")
                     response = input("> ")
                     print()
 
                     if response.strip().upper().startswith("SI"):
-                        return decrypted_text, mensaje
+                        return resultado, mensaje
 
         except Exception as error:
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored(error, "red", attrs=["bold"]))        
 
-        return None
+        return None, None
     
-    def datos():
+    def datos(self):
         try:
             while True:            
                 mensaje = input("Mensaje > ")
                 clave = int(input("Clave > "))
-                if not mensaje or not clave:
+                if mensaje or clave:
                     break
                 print(colored("%s [INFO] El mensaje y clave son datos obligatorios" % datetime.now(), "red", attrs=["bold"]))
         
@@ -116,7 +113,7 @@ class Cesar:
 
         return opcion
     
-    def menu():
+    def menu(self):
         clear()
         banner = header.figlet_format("Cesar")
         print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))
@@ -127,36 +124,38 @@ class Cesar:
                 print(colored("[02] Desencriptar", "green", attrs=["bold"]))
                 print(colored("[03] Hackear", "green", attrs=["bold"]))
                 print(colored("[04] Salir", 'green', attrs=["bold"]))
-                cesar = Cesar()
-                opcion = cesar.option()
+                cifrado = Cesar()
+                opcion = cifrado.option()
                 cifrar = bool()
 
                 if opcion == 1:
-                    print("%s [INFO] Iniciando... " % datetime.now())
+                    print(colored("\n%s [INFO] Encriptando... " % datetime.now(), "red", attrs=["bold"]))
                     cifrar = True
-                    mensaje, clave = cesar.datos()
-                    resultado, mensaje = cesar(mensaje, cifrar, clave)
-                    print("%s [INFO] %s " % (datetime.now(), mensaje))
-                    print("%s [INFO] %s " % (datetime.now(), resultado))
+                    mensaje, clave = cifrado.datos()
+                    resultado, mensaje = cifrado.cesar(mensaje, cifrar, clave)
+                    print(colored("%s [INFO] %s " % (datetime.now(), mensaje), "red", attrs=["bold"]))
+                    print(colored("%s [INFO] %s \n" % (datetime.now(), resultado), "red", attrs=["bold"]))
                 elif opcion == 2:
-                    print("%s [INFO] Iniciando... " % datetime.now())
+                    print(colored("\n%s [INFO] Desencriptando... " % datetime.now(), "red", attrs=["bold"]))
                     cifrar = False
-                    mensaje, clave = cesar.datos()
-                    resultado, mensaje = cesar(mensaje, cifrar, clave)
-                    print("%s [INFO] %s " % (datetime.now(), mensaje))
-                    print("%s [INFO] %s " % (datetime.now(), resultado))
+                    mensaje, clave = cifrado.datos()
+                    resultado, mensaje = cifrado.cesar(mensaje, cifrar, clave)
+                    print(colored("%s [INFO] %s " % (datetime.now(), mensaje), "red", attrs=["bold"]))
+                    print(colored("%s [INFO] %s \n" % (datetime.now(), resultado), "red", attrs=["bold"]))
                 elif opcion == 3:
-                    print("%s [INFO] Hackeando mensaje... " % datetime.now())
-                    resultado, mensaje = cesar.hackear()
+                    print(colored("\n%s [INFO] Hackeando mensaje... " % datetime.now(), "red", attrs=["bold"]))
+                    resultado, mensaje = cifrado.hackear()                    
                     if resultado == None:
-                        print("%s [INFO] El mensaje descifrado no es parte del idioma en español" % datetime.now())
-                    print("%s [INFO] %s " % (datetime.now(), mensaje))
-                    print("%s [INFO] %s " % (datetime.now(), resultado))
+                        print(colored("%s [INFO] Posiblemente el mensaje descifrado no es parte del diccionario español \n" % datetime.now(), "red", attrs=["bold"]))                    
+                    else:
+                        print(colored("%s [INFO] %s " % (datetime.now(), mensaje), "red", attrs=["bold"]))
+                        print(colored("%s [INFO] %s \n" % (datetime.now(), resultado), "red", attrs=["bold"]))
                 elif opcion == 4:                                        
-                    print(colored("%s [INFO] Bye..." % datetime.now(), 'red', attrs=['bold']))
+                    clear()
                     break
                 else:                    
                     print(colored("%s [INFO] Introduce una opcion valida del menu" % datetime.now(), "red", attrs=["bold"]))
         
         except Exception as error:
+            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored(error, 'red', attrs=['bold']))
