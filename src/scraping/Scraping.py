@@ -1,13 +1,12 @@
 """
 Uso: Web scraping
-Creado: Andrés Hernández Mata
+Creador: Andrés Hernández Mata
 Version: 1.0.0
 Python: 3.9.1
 Fecha: 10 Mayo 2020
 """
 
 import os
-
 import requests
 from lxml import html
 from bs4 import BeautifulSoup

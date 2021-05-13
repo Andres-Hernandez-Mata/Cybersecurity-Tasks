@@ -18,6 +18,7 @@ clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 
 def option():
     try:
+        opcion = 0
         while True:
             opcion = input("[**] Elige una opción > ")
             if opcion:                
@@ -43,10 +44,12 @@ def main():
                 print(colored("%s Web Scraping" % datetime.now(), "red", attrs=["bold"]))
             elif opcion == "2" or opcion == "02":
                 print(colored("%s Escaneo de Puertos" % datetime.now(), "red", attrs=["bold"]))
-            elif opcion == "3" or opcion == "03":
+            elif opcion == "3" or opcion == "03":                
                 print(colored("%s Cifrado de Mensajes" % datetime.now(), "red", attrs=["bold"]))
+                cesar = Cesar()
+                cesar.menu()                
             elif opcion == "4" or opcion == "04":
-                print(colored("%s Envío de Correos" % datetime.now(), "red", attrs=["bold"]))
+                print(colored("%s Envío de Correos" % datetime.now(), "green", attrs=["bold"]))
             elif opcion == "5" or opcion == "05":
                 print(colored("%s Obtención de Metadatos" % datetime.now(), "red", attrs=["bold"]))
             elif opcion == "6" or opcion == "06":
@@ -56,9 +59,9 @@ def main():
             else:
                 print(colored("%s [INFO] Por favor, introduce una opcion valida" % datetime.now(), "red", attrs=["bold"]))
     
-    except Exception as error:
+    except Exception as error:        
         print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-        print(colored(error, "red", attrs=["bold"]))
+        print(colored(error, "red", attrs=["bold"]))        
     except KeyboardInterrupt:
         quit()
 
