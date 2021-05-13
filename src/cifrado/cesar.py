@@ -14,8 +14,9 @@ import pyfiglet as header
 from termcolor import colored
 from cifrado.spanish import Spanish
 
-class Cesar:
-
+clear = lambda: os.system("cls" if os.name=="nt" else "clear")
+class Cesar: 
+    
     def cesar(self, mensaje, modo, clave):               
         try:            
         
@@ -50,7 +51,6 @@ class Cesar:
 
     def hackear():        
         try:
-
             while True:            
                 mensaje = input("Mensaje > ")                
                 if not mensaje:
@@ -82,7 +82,6 @@ class Cesar:
     
     def datos():
         try:
-
             while True:            
                 mensaje = input("Mensaje > ")
                 clave = int(input("Clave > "))
@@ -96,22 +95,25 @@ class Cesar:
         
         return mensaje, clave
 
-    def selecciona():
+    def option(self):
         try:
-
             opcion = 0
-            while True:                
+            while True:
                 opcion = int(input("[**] Elige una opción > "))
                 if not opcion:
                     break
                 print(colored("[INFO] Seleccionar una opcion del menu", "red", attrs=["bold"]))
+        
         except ValueError:
             print(colored("[ERROR] Ha ocurrido un error", "red", attrs=["bold"]))
             print(colored("[ERROR] Por favor, ingresar los datos solicitados", "red", attrs=["bold"]))
 
         return opcion
     
-    def menu():
+    def menu(self):
+        clear()
+        banner = header.figlet_format("Cesar")
+        print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))
         opcion = 0
         try:
             while True:
@@ -119,26 +121,27 @@ class Cesar:
                 print(colored("[02] Desencriptar", "green", attrs=["bold"]))
                 print(colored("[03] Hackear", "green", attrs=["bold"]))
                 print(colored("[04] Salir", 'green', attrs=["bold"]))
-                opcion = selecciona()
+                cesar = Cesar()
+                opcion = cesar.option()
                 cifrar = bool()
 
                 if opcion == 1:
                     print(datetime.now(), "\033[0;32m [INFO] Iniciando... \033[0;0m")
                     cifrar = True
-                    mensaje, clave = datos()
+                    mensaje, clave = cesar.datos()
                     resultado, mensaje = cesar(mensaje, cifrar, clave)
                     print(datetime.now(), "\033[0;33m [INFO] %s \033[0;0m" % mensaje)
                     print(datetime.now(), "\033[0;36m [INFO] %s \033[0;0m" % resultado)
                 elif opcion == 2:
                     print(datetime.now(), "\033[0;32m [INFO] Iniciando... \033[0;0m")
                     cifrar = False
-                    mensaje, clave = datos()
+                    mensaje, clave = cesar.datos()
                     resultado, mensaje = cesar(mensaje, cifrar, clave)
                     print(datetime.now(), "\033[0;33m [INFO] %s \033[0;0m" % mensaje)
                     print(datetime.now(), "\033[0;36m [INFO] %s \033[0;0m" % resultado)
                 elif opcion == 3:
                     print(datetime.now(), "\033[0;32m [INFO] Hackeando mensaje... \033[0;0m")
-                    resultado, mensaje = hackear()
+                    resultado, mensaje = cesar.hackear()
                     if resultado == None:
                         print(datetime.now(), "\033[0;91m [INFO] El mensaje descifrado no es parte del idioma en español \033[0;0m")
                     print(datetime.now(), "\033[0;33m [INFO] %s \033[0;0m" % mensaje)        
@@ -148,5 +151,6 @@ class Cesar:
                     break
                 else:                    
                     print(colored("[INFO] Introduce una opcion valida del menu", 'red', attrs=['bold']))
+        
         except Exception as error:
             print(colored(error, 'red', attrs=['bold']))
