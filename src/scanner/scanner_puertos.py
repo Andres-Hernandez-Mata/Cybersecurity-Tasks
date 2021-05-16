@@ -1,43 +1,78 @@
 """
 Uso: Escanear puertos
 Creado: Andrés Hernández Mata
-Version: 1.1.0
+Version: 2.0.0
 Python: 3.9.1
-Fecha: 16 Abril 2020
+Fecha: 16 Abril 2021
 """
 
-import argparse
-import requests
-import check_ports_socket
 import os
+import pyfiglet as header
+from termcolor import colored
+from datetime import datetime
+from scanner.check_ports_socket import Puerto
 
-os.system("cls")
+clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 
-if __name__ == "__main__":
+class Escaneo:
 
-    description = """ Ejemplos de uso:
-        + Escaneo basico:
-             -target 127.0.0.1
-        + Indica un puerto especifico:
-             -target 127.0.0.1 -port 21
-        + Indica una lista de puertos:
-             -target 127.0.0.1 -port 21,22"""
+    def escanear(self):
+        try:
+            while True:
+                ip = input("\nTarget > ")
+                port_list = input("Puertos > ")
+                if not ip or not port_list:
+                    print(colored("\n%s [INFO] El target y el puerto son datos obligatorios" % datetime.now(), "red", attrs=["bold"]))
+                else:
+                    break
+            
+            port_list = port_list.split(",")
+    
+            for i in range(len(port_list)):        
+                port_list[i] = int(port_list[i])
+    
+            puerto = Puerto()
+            puerto.check_ports_socket(ip, port_list)   
+        
+        except Exception as error:
+            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
+            print(colored("{}\n".format(error), "red", attrs=["bold"]))        
 
-    parser = argparse.ArgumentParser(description='Port scanning', epilog=description,
-                                     formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("-target", metavar='TARGET', dest="target", help="target to scan",required=True)
-    parser.add_argument("-ports", dest="ports", 
-                        help="Please, specify the target port(s) separated by comma[80,8080 by default]",
-                        default = "80,8080")    
-    params = parser.parse_args()
-	#python scanner_puertos.py -target 192.168.100.38 -port 22,25,80
-	# -target (socket) --> la necesito en str y la recibo en str ==> =D
-    # -ports (c/u) --> int
-    portlist = params.ports.split(',') # lista de str
-    #print (params.ports) #["22","25","80"]
-    #print (portlist) # "22,25,80"
-    for i in range(len(portlist)):
-        #print ("Puerto:" + portlist[i])
-        portlist[i] = int(portlist[i]) #lista de int
-    #módulo.función(parámetros)
-    check_ports_socket.checkPortsSocket(params.target,portlist)
+    def option(self):
+        try:
+            opcion = 0
+            while True:
+                opcion = input("[**] Elige una opción > ")
+                if opcion:                
+                    break
+                print(colored("\n%s [INFO] Seleccionar una opcion del menú" % datetime.now(), "red", attrs=["bold"]))
+        
+        except Exception as error:
+            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))   
+            print(colored(error, "red", attrs=["bold"]))
+        
+        return opcion
+
+    def menu(self):
+        clear()
+        banner = header.figlet_format("Scanner")
+        print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))
+        opcion = 0
+        try:
+            while True:
+                print(colored("[01] Escanear puerto con socket", "green", attrs=["bold"]))
+                print(colored("[02] Salir", "green", attrs=["bold"]))
+                escaneo = Escaneo()
+                opcion = escaneo.option()
+                if opcion == "1" or opcion == "01":
+                    escaneo.escanear()
+                elif opcion == "2" or opcion == "02":
+                    clear()
+                    break
+                else:                    
+                    print(colored("\n%s [INFO] Introduce una opcion valida del menú" % datetime.now(), "red", attrs=["bold"]))
+        
+        except Exception as error:
+            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
+            print(colored(error, "red", attrs=["bold"]))
+
