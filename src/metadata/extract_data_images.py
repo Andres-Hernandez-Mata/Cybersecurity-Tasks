@@ -7,7 +7,8 @@ Fecha: 10 Mayo 2021
 """
 
 import os
-from PIL.ExifTags import TAGS, GPSTAGS
+import sys, traceback
+from PIL.ExifTags import TAGS
 from PIL import Image
 from termcolor import colored
 from datetime import datetime
@@ -57,7 +58,7 @@ class Imagenes:
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored("{}\n".format(error), "red", attrs=["bold"]))
 
-    def get_metadata_imagenes():
+    def get_metadata_imagenes(self):
         try:
             imagenes = Imagenes()
             file = open("extract_data_imagenes.txt", "w")
@@ -73,14 +74,12 @@ class Imagenes:
                     file.write(os.path.join(root, name))
                     file.write(os.linesep)
                     file.write("[+] Metadata for file: %s \n" % (name))                    
-                    try:
-                        exifData = {}
+                    try:                        
                         exif = imagenes.get_exif_metadata(name)
                         for metadata in exif:
-                            file.write("Metadata: %s - Value: %s \n" %(metadata, exif[metadata]))
-                    except:
-                        import sys, traceback
-                        traceback.print_exc(file=sys.stdout)            
+                            file.write("Metadata: %s - Value: %s \n" %(metadata, exif[metadata]))                    
+                    except:                        
+                        traceback.print_exc(file=sys.stdout)
             print(colored("%s [INFO] Puedes consultar el resultado obtenido en extract_data_imagenes.txt" % datetime.now(), "green", attrs=["bold"]))
         
         except Exception as error:
