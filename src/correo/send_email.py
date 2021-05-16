@@ -1,7 +1,7 @@
 """
 Uso: Envío de correos con datos adjuntos
-Creado: Andrés Hernández Mata
-Version: 1.5.0
+Creador: Andrés Hernández Mata
+Version: 2.0.0
 Python: 3.9.1
 Fecha: 03 Mayo 2020
 """
@@ -22,18 +22,14 @@ clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 
 class Correo:  
 
-    def send(self):
-        clear()
-        banner = header.figlet_format("Email")        
-        print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))
-        print(colored("%s [INFO] Envío de correos con datos adjuntos" % datetime.now(), "green", attrs=["bold"]))
+    def send(self):        
+        print(colored("\n%s [INFO] Envío de correos con datos adjuntos" % datetime.now(), "green", attrs=["bold"]))
         print(colored("%s [INFO] Iniciar sesión ...\n" % datetime.now(), "green", attrs=["bold"]))
         while True:        
             sender_email = input("From > ")    
             password = getpass.getpass("Password > ")
             if not sender_email or not password:                
-                print(colored("%s [INFO] Iniciar sesión" % datetime.now(), "green", attrs=["bold"]))
-                print(colored("%s [INFO] From y password son datos obligatorios \n") % datetime.now(), "red", attrs=["bold"])
+                print(colored("%s [INFO] From y password son datos obligatorios \n" % datetime.now(), "red", attrs=["bold"]))
             else:
                 break        
         
@@ -57,9 +53,10 @@ class Correo:
                     print(colored("%s [INFO] La imagen ingresa no existe en el sistema \n" % datetime.now(), "red", attrs=["bold"]))
                 else:
                     break
+        
         except Exception as error:
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(error)
+            print(colored(error, "red", attrs=["bold"]))
 
         nombre = input("Nombre > ")
 
@@ -78,25 +75,67 @@ class Correo:
         </body>
         </html>
         """ 
-        msgHtml = MIMEText(html, 'html')
+        msgHtml = MIMEText(html, "html")
 
-        img = open(image, 'rb').read()
+        img = open(image, "rb").read()
         msgImage = MIMEImage(img)
-        msgImage.add_header('Content-ID', '<image>')
-        msgImage.add_header('Content-Disposition', 'inline', filename=os.path.basename(image))
+        msgImage.add_header("Content-ID", "<image>")
+        msgImage.add_header("Content-Disposition", "inline", filename=os.path.basename(image))
             
         message.attach(msgHtml)
         message.attach(msgImage)
 
         context = ssl.create_default_context()
         try:
-            print()
-            print(colored("%s [INFO] Enviando correo electronico..." % datetime.now(), "green", attrs=["bold"]))
+            print(colored("\n%s [INFO] Enviando correo electronico..." % datetime.now(), "green", attrs=["bold"]))
             server = smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context)        
             server.login(sender_email, password)
             server.sendmail(sender_email, receiver_email, message.as_string())
             print(colored("%s [INFO] El correo se envio correctamente" % datetime.now(), "green", attrs=["bold"]))
+        
         except Exception as error:
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(error)
+            print(colored(error, "red", attrs=["bold"]))
+            print()
+    
+    def option(self):
+        try:
+            opcion = 0
+            while True:
+                opcion = input("[**] Elige una opción > ")
+                if not opcion:
+                    print(colored("%s [INFO] Seleccionar una opcion del menu" % datetime.now(), "red", attrs=["bold"]))
+                else:
+                    break    
+        
+        except Exception as error:
+            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
+            print(colored("%s [ERROR] Introduce un numero entero" % datetime.now(), "red", attrs=["bold"]))
+            print(colored(error, "red", attrs=["bold"]))
+        
+        return opcion
+    
+    def menu(self):
+        clear()
+        banner = header.figlet_format("Email")
+        print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))
+        opcion = 0
+        try:
+            while True:
+                print(colored("[01] Enviar correo electrónico", "green", attrs=["bold"]))
+                print(colored("[02] Salir", "green", attrs=["bold"]))
+                correo = Correo()
+                opcion = correo.option()
+                if opcion == "1" or opcion == "01":
+                    correo.send()
+                elif opcion == "2" or opcion == "02":
+                    clear()
+                    break
+                else:                    
+                    print(colored("%s [INFO] Introduce una opcion valida del menu" % datetime.now(), "red", attrs=["bold"]))
+        
+        except Exception as error:
+            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
+            print(colored(error, "red", attrs=["bold"]))
+
       
