@@ -1,14 +1,14 @@
 """
 Uso: Cifrado César
 Creado: Andrés Hernández Mata
-Version: 2.1.0
+Version: 2.5.0
 Python: 3.9.1
-Fecha: 10 Mayo 2020
+Fecha: 10 Mayo 2021
 """
 
 import os
-from datetime import datetime
 import pyfiglet as header
+from datetime import datetime
 from termcolor import colored
 from cifrado.spanish import Spanish
 
@@ -80,11 +80,12 @@ class Cesar:
     def datos(self):
         try:
             while True:            
-                mensaje = input("Mensaje > ")
+                mensaje = input("\nMensaje > ")
                 clave = int(input("Clave > "))
-                if mensaje or clave:
-                    break
-                print(colored("%s [INFO] El mensaje y clave son datos obligatorios" % datetime.now(), "red", attrs=["bold"]))
+                if not mensaje or not clave:
+                    print(colored("\n%s [INFO] El mensaje y clave son datos obligatorios" % datetime.now(), "red", attrs=["bold"]))
+                else:
+                    break                
         
         except Exception as error:
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
@@ -102,14 +103,11 @@ class Cesar:
                 opcion = input("[**] Elige una opción > ")
                 if opcion:
                     break
-                print(colored("%s [INFO] Seleccionar una opcion del menu" % datetime.now(), "red", attrs=["bold"]))
+                print(colored("\n%s [INFO] Seleccionar una opcion del menú" % datetime.now(), "red", attrs=["bold"]))
         
         except Exception as error:
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored(error, "red", attrs=["bold"]))
-        except ValueError:
-            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored("%s [ERROR] Por favor, ingresar los datos solicitados" % datetime.now(), "red", attrs=["bold"]))
 
         return opcion
     
@@ -153,7 +151,7 @@ class Cesar:
                     clear()
                     break
                 else:                    
-                    print(colored("%s [INFO] Introduce una opcion valida del menu" % datetime.now(), "red", attrs=["bold"]))
+                    print(colored("\n%s [INFO] Introduce una opcion valida del menú" % datetime.now(), "red", attrs=["bold"]))
         
         except Exception as error:
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
