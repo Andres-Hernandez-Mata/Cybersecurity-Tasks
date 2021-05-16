@@ -1,7 +1,7 @@
 """
 Uso: Menú principal
 Creador: Andrés Hernández Mata
-Version: 1.2.0
+Version: 1.5.0
 Python: 3.8.5
 Fecha: 05 Marzo 2021
 """
@@ -11,6 +11,7 @@ import pyfiglet as header
 from termcolor import colored
 from datetime import datetime
 from cifrado.cesar import Cesar
+from correo.send_email import Correo
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 
@@ -26,6 +27,7 @@ def option():
     except Exception:
         print(colored("[ERROR] Ha ocurrido un error", "red", attrs=["bold"]))
         print(colored("[ERROR] Introduce un numero entero", "red", attrs=["bold"]))
+    
     return opcion
 
 def main():
@@ -49,12 +51,14 @@ def main():
                 print(colored("%s Cifrado de Mensajes" % datetime.now(), "red", attrs=["bold"]))
                 cesar = Cesar()
                 cesar.menu()                
-            elif opcion == "4" or opcion == "04":
+            elif opcion == "4" or opcion == "04": 
                 print(colored("%s Envío de Correos" % datetime.now(), "green", attrs=["bold"]))
+                correo = Correo()
+                correo.menu()
             elif opcion == "5" or opcion == "05":
                 print(colored("%s Obtención de Metadatos" % datetime.now(), "red", attrs=["bold"]))
             elif opcion == "6" or opcion == "06":
-                print(colored("\n%s [INFO] By Andrés Hernández Mata | Versión 1.3.0 | LSTI" % datetime.now(), "blue", attrs=["bold"]))
+                print(colored("\n%s [INFO] By Andrés Hernández Mata | Versión 1.5.0 | LSTI" % datetime.now(), "blue", attrs=["bold"]))
                 print(colored("%s [INFO] Gracias" % datetime.now(), "blue", attrs=["bold"]))
                 break
             else:
