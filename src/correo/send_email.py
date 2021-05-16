@@ -1,21 +1,21 @@
 """
 Uso: Envío de correos con datos adjuntos
 Creador: Andrés Hernández Mata
-Version: 2.0.0
+Version: 2.2.0
 Python: 3.9.1
-Fecha: 03 Mayo 2020
+Fecha: 03 Mayo 2021
 """
 
 import smtplib, ssl
 import getpass
+import os
+import pathlib
+import pyfiglet as header
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 from os.path import basename
 from datetime import datetime
-import os
-import pathlib
-import pyfiglet as header
 from termcolor import colored
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
@@ -95,8 +95,7 @@ class Correo:
         
         except Exception as error:
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored(error, "red", attrs=["bold"]))
-            print()
+            print(colored("{}\n".format(error), "red", attrs=["bold"]))            
     
     def option(self):
         try:
@@ -104,13 +103,28 @@ class Correo:
             while True:
                 opcion = input("[**] Elige una opción > ")
                 if not opcion:
-                    print(colored("%s [INFO] Seleccionar una opcion del menu" % datetime.now(), "red", attrs=["bold"]))
+                    print(colored("\n%s [INFO] Seleccionar una opcion del menu" % datetime.now(), "red", attrs=["bold"]))
                 else:
                     break    
         
         except Exception as error:
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored("%s [ERROR] Introduce un numero entero" % datetime.now(), "red", attrs=["bold"]))
+            print(colored(error, "red", attrs=["bold"]))
+        
+        return opcion
+    
+    def option():
+        try:
+            opcion = 0
+            while True:
+                opcion = input("[**] Elige una opción > ")
+                if opcion:                
+                    break
+                print(colored("\n%s [INFO] Seleccionar una opcion del menú" % datetime.now(), "red", attrs=["bold"]))
+        
+        except Exception as error:
+            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored(error, "red", attrs=["bold"]))
         
         return opcion
@@ -132,7 +146,7 @@ class Correo:
                     clear()
                     break
                 else:                    
-                    print(colored("%s [INFO] Introduce una opcion valida del menu" % datetime.now(), "red", attrs=["bold"]))
+                    print(colored("\n%s [INFO] Introduce una opcion valida del menú" % datetime.now(), "red", attrs=["bold"]))
         
         except Exception as error:
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
