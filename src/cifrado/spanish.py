@@ -9,7 +9,7 @@ Fecha: 11 Mayo 2020
 class Spanish:
     
     def load_dictionary(self):    
-        dictionary_file = open("cifrado\spanish.txt", encoding="utf8")    
+        dictionary_file = open("cifrado\diccionario.txt", encoding="utf8")    
         spanish_words = {}
         for word in dictionary_file.read().split("\n"):
             word = word.upper()
