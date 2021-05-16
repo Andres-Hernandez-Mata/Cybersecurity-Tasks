@@ -7,8 +7,6 @@ Fecha: 05 Marzo 2021
 """
 
 import os
-from colorama import Fore
-from colorama import Style
 import pyfiglet as header
 from termcolor import colored
 from datetime import datetime
