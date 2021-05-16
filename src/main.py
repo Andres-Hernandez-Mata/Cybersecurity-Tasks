@@ -1,7 +1,7 @@
 """
 Uso: Menú principal
 Creador: Andrés Hernández Mata
-Version: 1.5.0
+Version: 2.0.0
 Python: 3.8.5
 Fecha: 05 Marzo 2021
 """
@@ -12,6 +12,7 @@ from termcolor import colored
 from datetime import datetime
 from cifrado.cesar import Cesar
 from correo.send_email import Correo
+from scanner.scanner_puertos import Escaneo
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 
@@ -20,13 +21,13 @@ def option():
         opcion = 0
         while True:
             opcion = input("[**] Elige una opción > ")
-            if opcion:                
+            if opcion:  
                 break
-            print(colored("[INFO] Seleccionar una opcion del menu", "red", attrs=["bold"]))
+            print(colored("\n%s [INFO] Seleccionar una opcion del menú" % datetime.now(), "red", attrs=["bold"]))
     
-    except Exception:
-        print(colored("[ERROR] Ha ocurrido un error", "red", attrs=["bold"]))
-        print(colored("[ERROR] Introduce un numero entero", "red", attrs=["bold"]))
+    except Exception as error:
+        print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))   
+        print(colored(error, "red", attrs=["bold"]))
     
     return opcion
 
@@ -47,6 +48,8 @@ def main():
                 print(colored("%s Web Scraping" % datetime.now(), "red", attrs=["bold"]))
             elif opcion == "2" or opcion == "02":
                 print(colored("%s Escaneo de Puertos" % datetime.now(), "red", attrs=["bold"]))
+                escaneo = Escaneo()
+                escaneo.menu()
             elif opcion == "3" or opcion == "03":                
                 print(colored("%s Cifrado de Mensajes" % datetime.now(), "red", attrs=["bold"]))
                 cesar = Cesar()
@@ -58,11 +61,11 @@ def main():
             elif opcion == "5" or opcion == "05":
                 print(colored("%s Obtención de Metadatos" % datetime.now(), "red", attrs=["bold"]))
             elif opcion == "6" or opcion == "06":
-                print(colored("\n%s [INFO] By Andrés Hernández Mata | Versión 1.5.0 | LSTI" % datetime.now(), "blue", attrs=["bold"]))
+                print(colored("\n%s [INFO] By Andrés Hernández Mata | Versión 2.0.0 | LSTI" % datetime.now(), "blue", attrs=["bold"]))
                 print(colored("%s [INFO] Gracias" % datetime.now(), "blue", attrs=["bold"]))
                 break
             else:
-                print(colored("%s [INFO] Por favor, introduce una opcion valida" % datetime.now(), "red", attrs=["bold"]))
+                print(colored("%s [INFO] Por favor, introduce una opción valida" % datetime.now(), "red", attrs=["bold"]))
     
     except Exception as error:        
         print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
