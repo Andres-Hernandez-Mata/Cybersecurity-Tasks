@@ -89,10 +89,10 @@ class Cesar:
         
         except Exception as error:
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored(error, "red", attrs=["bold"]))
+            print(colored("{}\n".format(error), "red", attrs=["bold"]))
         except ValueError:
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored("%s [ERROR] Por favor, ingresar los datos solicitados" % datetime.now(), "red", attrs=["bold"]))
+            print(colored("%s [ERROR] Por favor, ingresar los datos solicitados \n" % datetime.now(), "red", attrs=["bold"]))
         
         return mensaje, clave
 
