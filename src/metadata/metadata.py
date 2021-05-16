@@ -11,7 +11,7 @@ import pyfiglet as header
 from termcolor import colored
 from datetime import datetime
 from metadata.extract_data_images import Imagenes
-from metadata.extract_data_PDF import PDF
+from metadata.extract_data_pdf import PDF
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 
@@ -24,7 +24,7 @@ class Metadata:
                 opcion = input("[**] Elige una opción > ")
                 if opcion:                
                     break
-                print(colored("\n%s [INFO] Seleccionar una opcion del menú" % datetime.now(), "red", attrs=["bold"]))
+                print(colored("\n%s [INFO] Seleccionar una opción del menú" % datetime.now(), "red", attrs=["bold"]))
         
         except Exception as error:
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))   

@@ -103,7 +103,7 @@ class Correo:
             while True:
                 opcion = input("[**] Elige una opción > ")
                 if not opcion:
-                    print(colored("\n%s [INFO] Seleccionar una opcion del menu" % datetime.now(), "red", attrs=["bold"]))
+                    print(colored("\n%s [INFO] Seleccionar una opción del menú" % datetime.now(), "red", attrs=["bold"]))
                 else:
                     break    
         

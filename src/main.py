@@ -13,6 +13,7 @@ from datetime import datetime
 from cifrado.cesar import Cesar
 from correo.send_email import Correo
 from scanner.scanner_puertos import Escaneo
+from metadata.metadata import Metadata
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 
@@ -23,7 +24,7 @@ def option():
             opcion = input("[**] Elige una opción > ")
             if opcion:  
                 break
-            print(colored("\n%s [INFO] Seleccionar una opcion del menú" % datetime.now(), "red", attrs=["bold"]))
+            print(colored("\n%s [INFO] Seleccionar una opción del menú" % datetime.now(), "red", attrs=["bold"]))
     
     except Exception as error:
         print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))   
@@ -60,6 +61,8 @@ def main():
                 correo.menu()
             elif opcion == "5" or opcion == "05":
                 print(colored("%s Obtención de Metadatos" % datetime.now(), "red", attrs=["bold"]))
+                metadata = Metadata()
+                metadata.menu()
             elif opcion == "6" or opcion == "06":
                 print(colored("\n%s [INFO] By Andrés Hernández Mata | Versión 2.0.0 | LSTI" % datetime.now(), "blue", attrs=["bold"]))
                 print(colored("%s [INFO] Gracias" % datetime.now(), "blue", attrs=["bold"]))
