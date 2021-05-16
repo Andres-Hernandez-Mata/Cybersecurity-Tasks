@@ -114,21 +114,6 @@ class Correo:
         
         return opcion
     
-    def option():
-        try:
-            opcion = 0
-            while True:
-                opcion = input("[**] Elige una opción > ")
-                if opcion:                
-                    break
-                print(colored("\n%s [INFO] Seleccionar una opcion del menú" % datetime.now(), "red", attrs=["bold"]))
-        
-        except Exception as error:
-            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored(error, "red", attrs=["bold"]))
-        
-        return opcion
-    
     def menu(self):
         clear()
         banner = header.figlet_format("Email")
