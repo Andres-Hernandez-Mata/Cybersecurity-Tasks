@@ -28,7 +28,7 @@ class Correo:
         while True:        
             sender_email = input("From > ")    
             password = getpass.getpass("Password > ")
-            if not sender_email or not password:                
+            if not sender_email or not password:     
                 print(colored("%s [INFO] From y password son datos obligatorios \n" % datetime.now(), "red", attrs=["bold"]))
             else:
                 break        
