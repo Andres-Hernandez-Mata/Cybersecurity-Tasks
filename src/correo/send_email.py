@@ -47,9 +47,9 @@ class Correo:
             while True:
                 image = input("Imagen > ")
                 pathImage = pathlib.Path(image)
-                if not image:                    
+                if not image:     
                     print(colored("%s [INFO] La imagen es un dato obligatorio \n" % datetime.now(), "red", attrs=["bold"]))
-                elif not pathImage.exists():                    
+                elif not pathImage.exists(): 
                     print(colored("%s [INFO] La imagen ingresa no existe en el sistema \n" % datetime.now(), "red", attrs=["bold"]))
                 else:
                     break

@@ -19,7 +19,7 @@ clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 
 def option():
     try:
-        opcion = 0
+        opcion = str()
         while True:
             opcion = input("[**] Elige una opción > ")
             if opcion:  
@@ -36,6 +36,8 @@ def main():
     try:
         while True:
             clear()
+            opcion = str()
+            print("Main opcion: ", opcion)
             banner = header.figlet_format("Cybersecurity Tasks")
             print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))
             print(colored("[01] Web Scraping", "green", attrs=["bold"]))
@@ -43,8 +45,8 @@ def main():
             print(colored("[03] Cifrado de Mensajes", "green", attrs=["bold"]))
             print(colored("[04] Envío de Correos", "green", attrs=["bold"]))
             print(colored("[05] Obtención de Metadatos", "green", attrs=["bold"]))
-            print(colored("[06] Salir", "green", attrs=["bold"]))
-            opcion = option()
+            print(colored("[06] Salir", "green", attrs=["bold"]))            
+            opcion = option()            
             if opcion == "1" or opcion == "01":
                 print(colored("%s Web Scraping" % datetime.now(), "red", attrs=["bold"]))
             elif opcion == "2" or opcion == "02":
