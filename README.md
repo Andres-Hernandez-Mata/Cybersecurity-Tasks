@@ -12,3 +12,4 @@ El cifrado César es un algoritmo criptográfico por sustitución que se usó en
 ## Envío de Correos
 
 ## Obtención de Metadatos
+Los metadatos Exif (Exchangeable image file format) son datos que se adjuntan a las fotografías tomadas por cámaras digitales (incluyendo las de los teléfonos). Entre los datos que se guardan en Exif están la información de fecha y hora en que se tomó la fotografía, el modelo de cámara, la velocidad del obturador, la distancia focal, etc. Cuando la cámara está provista con un GPS también puede registrar los datos de geolocalización, como la latitud y la longitud. Este tipo de información puede resultar de utilidad durante una investigación digital o análisis forense informático.
