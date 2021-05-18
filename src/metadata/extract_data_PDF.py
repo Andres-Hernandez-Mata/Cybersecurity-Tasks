@@ -1,34 +1,46 @@
 """
 Uso: Metadata de PDF's
 Creador: Andrés Hernández Mata
-Version: 1.0.0
+Version: 2.0.0
 Python: 3.9.1
 Fecha: 26 Abril 2021
 """
 
 import os
+import pathlib
 from PyPDF2 import PdfFileReader
 from termcolor import colored
 from datetime import datetime
 
-class PDF:
+class Documentos:
 
-    def get_metadata_pdf():
+    def get_metadata_pdf(self):
         try:
-            ruta = input("Ruta de pdf's: ")
+            src = os.getcwd()            
+            file = open("metadata\metadata_pdfs.txt", "w")
+            while True:
+                ruta = input("\nRuta de pdf's > ")
+                pathRuta = pathlib.Path(ruta)
+                if not ruta:
+                    print(colored("%s [INFO] La ruta de pdf's es un dato obligatorio " % datetime.now(), "red", attrs=["bold"]))
+                elif not pathRuta.exists():                    
+                    print(colored("%s [INFO] La ruta de pdf's ingresada no existe en el sistema " % datetime.now(), "red", attrs=["bold"]))
+                else:
+                    break
+            print()
             os.chdir(ruta)
             for root, dirs, files in os.walk(".", topdown=False):
                 for name in files:
-                    ext = name.lower().rsplit(".", 1)[-1]
-                    print(name.lower().rsplit(".", 1))                    
+                    print(colored("{} [INFO] Metadata de {}".format(datetime.now(), name), "green", attrs=["bold"]))
+                    ext = name.lower().rsplit(".", 1)[-1]                    
                     if ext in ["pdf"]:
-                        print("[+] Metadata for file: %s " % (ruta+os.path.sep+name))
+                        file.write("[+] Metadata for file: %s \n" % (ruta+os.path.sep+name))
                         pdfFile = PdfFileReader(open(ruta+os.path.sep+name, "rb"))
-                        docInfo = pdfFile.getDocumentInfo()
-                        print("Tipo: ", type(docInfo))
+                        docInfo = pdfFile.getDocumentInfo()                       
                         for metaItem in docInfo:
-                            print("[+] " + metaItem + ":" + docInfo[metaItem])
-                        print("\n")
+                            file.write("[+] {} : {} \n".format(metaItem, docInfo[metaItem]))
+            os.chdir(src)
+            print(colored("\n%s [INFO] Puedes consultar el resultado obtenido en metadata_pdfs.txt" % datetime.now(), "green", attrs=["bold"]))
         
         except Exception as error:
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
