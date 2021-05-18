@@ -39,8 +39,7 @@ class Escaneo:
             print(colored("{}\n".format(error), "red", attrs=["bold"]))        
 
     def option(self):
-        try:
-            opcion = 0
+        try:            
             while True:
                 opcion = input("[**] Elige una opción > ")
                 if opcion:                
@@ -56,12 +55,12 @@ class Escaneo:
     def menu(self):
         clear()
         banner = header.figlet_format("Scanner")
-        print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))
-        opcion = 0
+        print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))        
         try:
             while True:
                 print(colored("[01] Escanear puerto con socket", "green", attrs=["bold"]))
                 print(colored("[02] Salir", "green", attrs=["bold"]))
+                opcion = str()
                 escaneo = Escaneo()
                 opcion = escaneo.option()
                 if opcion == "1" or opcion == "01":

@@ -99,7 +99,6 @@ class Correo:
     
     def option(self):
         try:
-            opcion = 0
             while True:
                 opcion = input("[**] Elige una opción > ")
                 if not opcion:
@@ -117,12 +116,12 @@ class Correo:
     def menu(self):
         clear()
         banner = header.figlet_format("Email")
-        print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))
-        opcion = 0
+        print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))        
         try:
             while True:
                 print(colored("[01] Enviar correo electrónico", "green", attrs=["bold"]))
                 print(colored("[02] Salir", "green", attrs=["bold"]))
+                opcion = str()
                 correo = Correo()
                 opcion = correo.option()
                 if opcion == "1" or opcion == "01":

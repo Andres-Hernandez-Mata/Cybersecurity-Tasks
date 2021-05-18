@@ -97,8 +97,7 @@ class Cesar:
         return mensaje, clave
 
     def option(self):
-        try:
-            opcion = 0
+        try:            
             while True:
                 opcion = input("[**] Elige una opción > ")
                 if opcion:
@@ -114,14 +113,14 @@ class Cesar:
     def menu(self):
         clear()
         banner = header.figlet_format("Cesar")
-        print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))
-        opcion = 0
+        print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))        
         try:
             while True:
                 print(colored("[01] Encriptar", "green", attrs=["bold"]))
                 print(colored("[02] Desencriptar", "green", attrs=["bold"]))
                 print(colored("[03] Hackear", "green", attrs=["bold"]))
                 print(colored("[04] Salir", 'green', attrs=["bold"]))
+                opcion = str()
                 cifrado = Cesar()
                 opcion = cifrado.option()
                 cifrar = bool()
