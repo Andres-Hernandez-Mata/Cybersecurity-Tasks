@@ -1,13 +1,14 @@
 """
 Uso: Metadata de imagenes
 Creador: Andrés Hernández Mata
-Version: 2.0.0
+Version: 2.5.0
 Python: 3.9.1
 Fecha: 10 Mayo 2021
 """
 
 import os
 import sys, traceback
+import pathlib
 from PIL.ExifTags import TAGS
 from PIL import Image
 from termcolor import colored
@@ -37,8 +38,8 @@ class Imagenes:
                 exif["GPSInfo"] = {"Lat" : Lat, "Lng" : Lng}
         
         except Exception as error:
-            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored("{}\n".format(error), "red", attrs=["bold"]))
+            print(colored("\n%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
+            print(colored("{}".format(error), "red", attrs=["bold"]))
     
     def get_exif_metadata(self, image_path):
         try:
@@ -55,38 +56,42 @@ class Imagenes:
             return ret
         
         except Exception as error:
-            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored("{}\n".format(error), "red", attrs=["bold"]))
+            print(colored("\n%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
+            print(colored("{}".format(error), "red", attrs=["bold"]))
 
     def get_metadata_imagenes(self):
+        src = os.getcwd()        
         try:
             imagenes = Imagenes()
-            file = open("extract_data_imagenes.txt", "w")
+            file = open("metadata\extract_data_imagenes.txt", "w")
             while True:
                 ruta = input("\nRuta de imágenes: ")
+                pathRuta = pathlib.Path(ruta)
                 if not ruta:
-                    print(colored("\n%s [INFO] La ruta de imágenes es un dato obligatorio" % datetime.now(), "red", attrs=["bold"]))
+                    print(colored("%s [INFO] La ruta de imágenes es un dato obligatorio " % datetime.now(), "red", attrs=["bold"]))
+                elif not pathRuta.exists():                    
+                    print(colored("%s [INFO] La ruta de imágenes ingresada no existe en el sistema " % datetime.now(), "red", attrs=["bold"]))
                 else:
                     break
+            print()
             os.chdir(ruta)
-            for root, dirs, files in os.walk(".", topdown=False):
+            for root, dirs, files in os.walk(".", topdown=False):               
                 for name in files:
+                    print(colored("{} [INFO] Metadata de {}".format(datetime.now(), name), "green", attrs=["bold"]))
                     file.write(os.path.join(root, name))
                     file.write(os.linesep)
-                    file.write("[+] Metadata for file: %s \n" % (name))                    
-                    try:                        
-                        exif = imagenes.get_exif_metadata(name)
-                        for metadata in exif:
-                            file.write("Metadata: %s - Value: %s \n" %(metadata, exif[metadata]))                    
-                    except:                        
-                        traceback.print_exc(file=sys.stdout)
-            print(colored("%s [INFO] Puedes consultar el resultado obtenido en extract_data_imagenes.txt" % datetime.now(), "green", attrs=["bold"]))
+                    file.write("[+] Metadata for file: %s \n" % (name))
+                    exif = imagenes.get_exif_metadata(name)                    
+                    for metadata in exif:
+                        file.write("Metadata: %s - Value: %s \n" % (metadata, exif[metadata]))
+                file.close()
+            os.chdir(src)           
+            print(colored("\n%s [INFO] Puedes consultar el resultado obtenido en extract_data_imagenes.txt" % datetime.now(), "green", attrs=["bold"]))
         
         except Exception as error:
-            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored("{}\n".format(error), "red", attrs=["bold"]))
-        finally:
-            file.close()
+            print(colored("\n%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
+            print(colored("{}".format(error), "red", attrs=["bold"]))
+            
 
 
 
