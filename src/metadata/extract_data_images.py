@@ -1,13 +1,12 @@
 """
 Uso: Metadata de imagenes
 Creador: Andrés Hernández Mata
-Version: 2.5.0
+Version: 2.6.0
 Python: 3.9.1
 Fecha: 10 Mayo 2021
 """
 
 import os
-import sys, traceback
 import pathlib
 from PIL.ExifTags import TAGS
 from PIL import Image
@@ -38,7 +37,7 @@ class Imagenes:
                 exif["GPSInfo"] = {"Lat" : Lat, "Lng" : Lng}
         
         except Exception as error:
-            print(colored("\n%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
+            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored("{}".format(error), "red", attrs=["bold"]))
     
     def get_exif_metadata(self, image_path):
@@ -56,16 +55,16 @@ class Imagenes:
             return ret
         
         except Exception as error:
-            print(colored("\n%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
+            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored("{}".format(error), "red", attrs=["bold"]))
 
-    def get_metadata_imagenes(self):
-        src = os.getcwd()        
+    def get_metadata_imagenes(self):                
         try:
+            src = os.getcwd()
             imagenes = Imagenes()
-            file = open("metadata\extract_data_imagenes.txt", "w")
+            file = open("metadata\metada_imagenes.txt", "w")
             while True:
-                ruta = input("\nRuta de imágenes: ")
+                ruta = input("\nRuta de imágenes > ")
                 pathRuta = pathlib.Path(ruta)
                 if not ruta:
                     print(colored("%s [INFO] La ruta de imágenes es un dato obligatorio " % datetime.now(), "red", attrs=["bold"]))
@@ -85,11 +84,11 @@ class Imagenes:
                     for metadata in exif:
                         file.write("Metadata: %s - Value: %s \n" % (metadata, exif[metadata]))
                 file.close()
-            os.chdir(src)           
-            print(colored("\n%s [INFO] Puedes consultar el resultado obtenido en extract_data_imagenes.txt" % datetime.now(), "green", attrs=["bold"]))
+            os.chdir(src)
+            print(colored("\n%s [INFO] Puedes consultar el resultado obtenido en metada_imagenes.txt" % datetime.now(), "green", attrs=["bold"]))
         
         except Exception as error:
-            print(colored("\n%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
+            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored("{}".format(error), "red", attrs=["bold"]))
             
 
