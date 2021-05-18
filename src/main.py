@@ -1,7 +1,7 @@
 """
 Uso: Menú principal
 Creador: Andrés Hernández Mata
-Version: 2.0.0
+Version: 3.0.0
 Python: 3.8.5
 Fecha: 05 Marzo 2021
 """
@@ -14,6 +14,7 @@ from cifrado.cesar import Cesar
 from correo.send_email import Correo
 from scanner.scanner_puertos import Escaneo
 from metadata.metadata import Metadata
+from scraping.beautiful_soup import Beautiful
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 
@@ -36,8 +37,6 @@ def main():
     try:
         while True:
             clear()
-            opcion = str()
-            print("Main opcion: ", opcion)
             banner = header.figlet_format("Cybersecurity Tasks")
             print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))
             print(colored("[01] Web Scraping", "green", attrs=["bold"]))
@@ -45,10 +44,13 @@ def main():
             print(colored("[03] Cifrado de Mensajes", "green", attrs=["bold"]))
             print(colored("[04] Envío de Correos", "green", attrs=["bold"]))
             print(colored("[05] Obtención de Metadatos", "green", attrs=["bold"]))
-            print(colored("[06] Salir", "green", attrs=["bold"]))            
+            print(colored("[06] Salir", "green", attrs=["bold"]))
+            opcion = str()
             opcion = option()            
             if opcion == "1" or opcion == "01":
                 print(colored("%s Web Scraping" % datetime.now(), "red", attrs=["bold"]))
+                beautiful = Beautiful()
+                beautiful.menu()
             elif opcion == "2" or opcion == "02":
                 print(colored("%s Escaneo de Puertos" % datetime.now(), "red", attrs=["bold"]))
                 escaneo = Escaneo()
@@ -66,7 +68,7 @@ def main():
                 metadata = Metadata()
                 metadata.menu()
             elif opcion == "6" or opcion == "06":
-                print(colored("\n%s [INFO] By Andrés Hernández Mata | Versión 2.0.0 | LSTI" % datetime.now(), "blue", attrs=["bold"]))
+                print(colored("\n%s [INFO] By Andrés Hernández Mata | Versión 3.0.0 | LSTI" % datetime.now(), "blue", attrs=["bold"]))
                 print(colored("%s [INFO] Gracias" % datetime.now(), "blue", attrs=["bold"]))
                 break
             else:
