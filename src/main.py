@@ -8,6 +8,7 @@ Fecha: 05 Marzo 2021
 
 import os
 import pyfiglet as header
+import argparse
 from termcolor import colored
 from datetime import datetime
 from cifrado.cesar import Cesar
@@ -15,12 +16,30 @@ from correo.send_email import Correo
 from scanner.scanner_puertos import Escaneo
 from metadata.metadata import Metadata
 from scraping.beautiful_soup import Beautiful
+from scraping.scraping import Scraping
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 
+def arg():
+    try:
+        descripion = "example: -url https://www.google.com.mx"
+        parser = argparse.ArgumentParser(description="Cybersecurity Tasks [01] Web Scraping", epilog=descripion, formatter_class=argparse.RawDescriptionHelpFormatter)
+        parser.add_argument("-url,", metavar='--url', dest="url", help="URL para hacer web scraping", required=False)
+        params = parser.parse_args()
+        url = params.url
+        if url:
+            scraping = Scraping()
+            scraping.scraping_beautiful_soup(url)
+            scraping.scraping_pdf(url)
+            scraping.scraping_links(url)
+            quit()
+
+    except Exception as error:
+        print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))   
+        print(colored("{}\n".format(error), "red", attrs=["bold"]))    
+
 def option():
     try:
-        opcion = str()
         while True:
             opcion = input("[**] Elige una opción > ")
             if opcion:  
@@ -35,6 +54,7 @@ def option():
 
 def main():
     try:
+        arg()          
         while True:
             clear()
             banner = header.figlet_format("Cybersecurity Tasks")
