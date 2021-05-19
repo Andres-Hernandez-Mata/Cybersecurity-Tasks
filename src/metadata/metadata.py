@@ -1,19 +1,21 @@
 """
 Uso: Menu de metadata
 Creador: Andrés Hernández Mata
-Version: 1.4.0
+Version: 2.0.0
 Python: 3.9.1
 Fecha: 16 Mayo 2021
 """
 
 import os
 import pyfiglet as header
+import logging
 from termcolor import colored
 from datetime import datetime
 from metadata.extract_data_images import Imagenes
 from metadata.extract_data_pdf import Documentos
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
+logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", format="%(asctime)s %(levelname)s:%(message)s")
 
 class Metadata:
 
@@ -27,6 +29,7 @@ class Metadata:
                     break                
         
         except Exception as error:
+            logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))   
             print(colored("{}\n".format(error), "red", attrs=["bold"]))
         
@@ -37,7 +40,9 @@ class Metadata:
         banner = header.figlet_format("Metadata")
         print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))        
         try:
-            while True:                
+            while True:
+                src = os.getcwd()
+                print(src)
                 print(colored("[01] Extraer metadata de imagenes", "green", attrs=["bold"]))
                 print(colored("[02] Extraer metadata de PDF's", "green", attrs=["bold"]))
                 print(colored("[03] Salir", "green", attrs=["bold"]))
@@ -57,6 +62,7 @@ class Metadata:
                     print(colored("\n%s [INFO] Introduce una opción valida del menú" % datetime.now(), "red", attrs=["bold"]))
         
         except Exception as error:
+            logging.error(error, exc_info=True)
             print(colored("\n%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored(error, "red", attrs=["bold"]))
 
