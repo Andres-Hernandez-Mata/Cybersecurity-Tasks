@@ -1,7 +1,7 @@
 """
 Uso: Menú principal
 Creador: Andrés Hernández Mata
-Version: 3.0.0
+Version: 3.5.0
 Python: 3.8.5
 Fecha: 05 Marzo 2021
 """
@@ -9,6 +9,7 @@ Fecha: 05 Marzo 2021
 import os
 import pyfiglet as header
 import argparse
+import logging
 from termcolor import colored
 from datetime import datetime
 from cifrado.cesar import Cesar
@@ -19,6 +20,7 @@ from scraping.beautiful_soup import Beautiful
 from scraping.scraping import Scraping
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
+logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", format="%(asctime)s %(levelname)s:%(message)s")
 
 def arg():
     try:
@@ -35,6 +37,7 @@ def arg():
             quit()
 
     except Exception as error:
+        logging.error(error, exc_info=True)
         print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))   
         print(colored("{}\n".format(error), "red", attrs=["bold"]))    
 
@@ -47,6 +50,7 @@ def option():
             print(colored("\n%s [INFO] Seleccionar una opción del menú" % datetime.now(), "red", attrs=["bold"]))
     
     except Exception as error:
+        logging.error(error, exc_info=True)
         print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))   
         print(colored("{}\n".format(error), "red", attrs=["bold"]))
     
@@ -88,13 +92,14 @@ def main():
                 metadata = Metadata()
                 metadata.menu()
             elif opcion == "6" or opcion == "06":
-                print(colored("\n%s [INFO] By Andrés Hernández Mata | Versión 3.0.0 | LSTI" % datetime.now(), "blue", attrs=["bold"]))
+                print(colored("\n%s [INFO] By Andrés Hernández Mata | Versión 3.5.0 | LSTI" % datetime.now(), "blue", attrs=["bold"]))
                 print(colored("%s [INFO] Gracias" % datetime.now(), "blue", attrs=["bold"]))
                 break
             else:
                 print(colored("%s [INFO] Por favor, introduce una opción valida" % datetime.now(), "red", attrs=["bold"]))
     
-    except Exception as error:        
+    except Exception as error:
+        logging.error(error, exc_info=True)
         print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
         print(colored(error, "red", attrs=["bold"]))        
     except KeyboardInterrupt:
