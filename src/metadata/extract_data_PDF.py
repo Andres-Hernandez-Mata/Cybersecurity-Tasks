@@ -1,7 +1,7 @@
 """
 Uso: Metadata de PDF's
 Creador: Andrés Hernández Mata
-Version: 3.0.0
+Version: 3.7.0
 Python: 3.9.1
 Fecha: 26 Abril 2021
 """
@@ -19,8 +19,9 @@ class Documentos:
 
     def get_metadata_pdf(self):
         try:
-            src = os.getcwd()            
-            file = open("metadata\metadata_pdfs.txt", "w")
+            src = os.getcwd()
+            os.chdir("metadata")         
+            file = open("metadata_pdfs.txt", "w")
             while True:
                 ruta = input("\nRuta de pdf's > ")
                 pathRuta = pathlib.Path(ruta)
@@ -43,9 +44,10 @@ class Documentos:
                         for metaItem in docInfo:
                             file.write("[+] {} : {} \n".format(metaItem, docInfo[metaItem]))
             os.chdir(src)
-            print(colored("\n%s [INFO] Puedes consultar el resultado obtenido en metadata_pdfs.txt" % datetime.now(), "green", attrs=["bold"]))
+            print(colored("%s [INFO] Puedes consultar el resultado obtenido en metadata_pdfs.txt \n" % datetime.now(), "green", attrs=["bold"]))
         
         except Exception as error:
+            os.chdir(src)
             logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored("{}\n".format(error), "red", attrs=["bold"]))
