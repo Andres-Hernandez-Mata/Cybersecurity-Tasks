@@ -1,7 +1,7 @@
 """
 Uso: Envío de correos con datos adjuntos
 Creador: Andrés Hernández Mata
-Version: 2.2.0
+Version: 2.9.0
 Python: 3.9.1
 Fecha: 03 Mayo 2021
 """
@@ -11,6 +11,7 @@ import getpass
 import os
 import pathlib
 import pyfiglet as header
+import logging
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
@@ -19,6 +20,7 @@ from datetime import datetime
 from termcolor import colored
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
+logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", format="%(asctime)s %(levelname)s:%(message)s")
 
 class Correo:  
 
@@ -55,6 +57,7 @@ class Correo:
                     break
         
         except Exception as error:
+            logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored(error, "red", attrs=["bold"]))
 
@@ -94,6 +97,7 @@ class Correo:
             print(colored("%s [INFO] El correo se envio correctamente" % datetime.now(), "green", attrs=["bold"]))
         
         except Exception as error:
+            logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored("{}\n".format(error), "red", attrs=["bold"]))            
     
@@ -107,6 +111,7 @@ class Correo:
                     break    
         
         except Exception as error:
+            logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored("%s [ERROR] Introduce un numero entero" % datetime.now(), "red", attrs=["bold"]))
             print(colored("{}\n".format(error), "red", attrs=["bold"]))
@@ -133,6 +138,7 @@ class Correo:
                     print(colored("\n%s [INFO] Introduce una opcion valida del menú" % datetime.now(), "red", attrs=["bold"]))
         
         except Exception as error:
+            logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored(error, "red", attrs=["bold"]))
 
