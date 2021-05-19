@@ -41,8 +41,7 @@ class Metadata:
         print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))        
         try:
             while True:
-                src = os.getcwd()
-                print(src)
+                src = os.getcwd()                
                 print(colored("[01] Extraer metadata de imagenes", "green", attrs=["bold"]))
                 print(colored("[02] Extraer metadata de PDF's", "green", attrs=["bold"]))
                 print(colored("[03] Salir", "green", attrs=["bold"]))
@@ -59,7 +58,7 @@ class Metadata:
                     clear()
                     break
                 else:                  
-                    print(colored("\n%s [INFO] Introduce una opción valida del menú" % datetime.now(), "red", attrs=["bold"]))
+                    print(colored("%s [INFO] Introduce una opción valida del menú" % datetime.now(), "red", attrs=["bold"]))
         
         except Exception as error:
             logging.error(error, exc_info=True)
