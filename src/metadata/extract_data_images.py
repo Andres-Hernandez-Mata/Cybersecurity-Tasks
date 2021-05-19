@@ -1,18 +1,20 @@
 """
 Uso: Metadata de imagenes
 Creador: Andrés Hernández Mata
-Version: 2.6.0
+Version: 3.0.0
 Python: 3.9.1
 Fecha: 10 Mayo 2021
 """
 
 import os
 import pathlib
+import logging
 from PIL.ExifTags import TAGS
 from PIL import Image
 from termcolor import colored
 from datetime import datetime
 
+logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", format="%(asctime)s %(levelname)s:%(message)s")
 class Imagenes:
 
     def decode_gps_info(self, exif):       
@@ -37,8 +39,9 @@ class Imagenes:
                 exif["GPSInfo"] = {"Lat" : Lat, "Lng" : Lng}
         
         except Exception as error:
+            logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored("{}".format(error), "red", attrs=["bold"]))
+            print(colored("{}".format(error), "red", attrs=["bold"]))            
     
     def get_exif_metadata(self, image_path):
         try:
@@ -55,6 +58,7 @@ class Imagenes:
             return ret
         
         except Exception as error:
+            logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored("{}".format(error), "red", attrs=["bold"]))
 
@@ -62,7 +66,8 @@ class Imagenes:
         try:
             src = os.getcwd()
             imagenes = Imagenes()
-            file = open("metadata\metada_imagenes.txt", "w")
+            os.chdir("metadata")
+            file = open("metadata_imagenes.txt", "w")
             while True:
                 ruta = input("\nRuta de imágenes > ")
                 pathRuta = pathlib.Path(ruta)
@@ -84,12 +89,14 @@ class Imagenes:
                     for metadata in exif:
                         file.write("Metadata: %s - Value: %s \n" % (metadata, exif[metadata]))
                 file.close()
-            os.chdir(src)
-            print(colored("\n%s [INFO] Puedes consultar el resultado obtenido en metada_imagenes.txt" % datetime.now(), "green", attrs=["bold"]))
+            os.chdir(src)            
+            print(colored("%s [INFO] Puedes consultar el resultado obtenido en metadata_imagenes.txt \n" % datetime.now(), "green", attrs=["bold"]))
         
         except Exception as error:
+            os.chdir(src)
+            logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored("{}".format(error), "red", attrs=["bold"]))
+            print(colored("{}\n".format(error), "red", attrs=["bold"]))
             
 
 
