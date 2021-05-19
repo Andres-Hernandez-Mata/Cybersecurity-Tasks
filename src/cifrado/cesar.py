@@ -1,18 +1,20 @@
 """
 Uso: Cifrado César
 Creado: Andrés Hernández Mata
-Version: 2.5.0
+Version: 3.0.0
 Python: 3.9.1
 Fecha: 10 Mayo 2021
 """
 
 import os
 import pyfiglet as header
+import logging
 from datetime import datetime
 from termcolor import colored
 from cifrado.spanish import Spanish
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
+logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", format="%(asctime)s %(levelname)s:%(message)s")
 class Cesar: 
     
     def cesar(self, mensaje, modo, clave):               
@@ -40,6 +42,7 @@ class Cesar:
                     resultado = resultado + simbolo    
         
         except Exception as error:
+            logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored(error, "red", attrs=["bold"]))        
         
@@ -72,6 +75,7 @@ class Cesar:
                         return resultado, mensaje
 
         except Exception as error:
+            logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored(error, "red", attrs=["bold"]))        
 
@@ -88,6 +92,7 @@ class Cesar:
                     break                
         
         except Exception as error:
+            logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored("{}\n".format(error), "red", attrs=["bold"]))
         except ValueError:
@@ -105,6 +110,7 @@ class Cesar:
                 print(colored("\n%s [INFO] Seleccionar una opción del menú" % datetime.now(), "red", attrs=["bold"]))
         
         except Exception as error:
+            logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored(error, "red", attrs=["bold"]))
 
@@ -153,5 +159,6 @@ class Cesar:
                     print(colored("\n%s [INFO] Introduce una opcion valida del menú" % datetime.now(), "red", attrs=["bold"]))
         
         except Exception as error:
+            logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored(error, "red", attrs=["bold"]))
