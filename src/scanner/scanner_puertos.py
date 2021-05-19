@@ -1,18 +1,20 @@
 """
 Uso: Escanear puertos
 Creado: Andrés Hernández Mata
-Version: 2.0.0
+Version: 2.5.0
 Python: 3.9.1
 Fecha: 16 Abril 2021
 """
 
 import os
 import pyfiglet as header
+import logging
 from termcolor import colored
 from datetime import datetime
 from scanner.check_ports_socket import Puerto
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
+logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", format="%(asctime)s %(levelname)s:%(message)s")
 
 class Escaneo:
 
@@ -35,6 +37,7 @@ class Escaneo:
             puerto.check_ports_socket(ip, port_list)   
         
         except Exception as error:
+            logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored("{}\n".format(error), "red", attrs=["bold"]))        
 
@@ -47,6 +50,7 @@ class Escaneo:
                 print(colored("\n%s [INFO] Seleccionar una opción del menú" % datetime.now(), "red", attrs=["bold"]))
         
         except Exception as error:
+            logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))   
             print(colored("{}\n".format(error), "red", attrs=["bold"]))
         
@@ -72,6 +76,7 @@ class Escaneo:
                     print(colored("\n%s [INFO] Introduce una opcion valida del menú" % datetime.now(), "red", attrs=["bold"]))
         
         except Exception as error:
+            logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored(error, "red", attrs=["bold"]))
 
