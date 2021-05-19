@@ -1,16 +1,19 @@
 """
 Uso: Metadata de PDF's
 Creador: Andrés Hernández Mata
-Version: 2.0.0
+Version: 3.0.0
 Python: 3.9.1
 Fecha: 26 Abril 2021
 """
 
 import os
 import pathlib
+import logging
 from PyPDF2 import PdfFileReader
 from termcolor import colored
 from datetime import datetime
+
+logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", format="%(asctime)s %(levelname)s:%(message)s")
 
 class Documentos:
 
@@ -43,5 +46,6 @@ class Documentos:
             print(colored("\n%s [INFO] Puedes consultar el resultado obtenido en metadata_pdfs.txt" % datetime.now(), "green", attrs=["bold"]))
         
         except Exception as error:
+            logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored("{}\n".format(error), "red", attrs=["bold"]))
