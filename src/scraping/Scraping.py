@@ -8,6 +8,7 @@ Fecha: 10 Mayo 2020
 
 import os
 import requests
+import logging
 from lxml import html
 import pathlib
 from bs4 import BeautifulSoup
@@ -15,6 +16,7 @@ from datetime import datetime
 from termcolor import colored
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
+logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", format="%(asctime)s %(levelname)s:%(message)s")
 
 class Scraping:
     
@@ -46,7 +48,8 @@ class Scraping:
                 file.write(request.content)
                 file.close()
         
-        except Exception as error:            
+        except Exception as error:
+            logging.error(error, exc_info=True)           
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored(error, "red", attrs=["bold"]))      
             
@@ -79,7 +82,8 @@ class Scraping:
                 file.write(request.content)
                 file.close()            
                 
-        except Exception as error:            
+        except Exception as error:
+            logging.error(error, exc_info=True)          
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored(error, "red", attrs=["bold"]))                    
 
@@ -99,6 +103,7 @@ class Scraping:
             os.chdir("..")  
         
         except Exception as error:
+            logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored("{}\n".format(error), "red", attrs=["bold"]))
 
@@ -114,7 +119,8 @@ class Scraping:
             scraping.scraping_beautiful_soup(url)
             scraping.scraping_pdf(url)
             scraping.scraping_links(url)
-        except Exception as error:            
+        except Exception as error:
+            logging.error(error, exc_info=True)     
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
             print(colored(error, "red", attrs=["bold"]))
 
