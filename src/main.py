@@ -18,6 +18,7 @@ from scanner.scanner_puertos import Escaneo
 from metadata.metadata import Metadata
 from scraping.beautiful_soup import Beautiful
 from scraping.scraping import Scraping
+from api.shodan import Shodan
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", format="%(asctime)s %(levelname)s:%(message)s")
@@ -68,7 +69,8 @@ def main():
             print(colored("[03] Cifrado de Mensajes", "green", attrs=["bold"]))
             print(colored("[04] Envío de Correos", "green", attrs=["bold"]))
             print(colored("[05] Obtención de Metadatos", "green", attrs=["bold"]))
-            print(colored("[06] Salir", "green", attrs=["bold"]))
+            print(colored("[06] API de Shodan", "green", attrs=["bold"]))
+            print(colored("[07] Salir", "green", attrs=["bold"]))
             opcion = str()
             opcion = option()            
             if opcion == "1" or opcion == "01":
@@ -92,6 +94,10 @@ def main():
                 metadata = Metadata()
                 metadata.menu()
             elif opcion == "6" or opcion == "06":
+                print(colored("%s API de Shodan" % datetime.now(), "red", attrs=["bold"]))
+                shodan = Shodan()
+                shodan.menu()
+            elif opcion == "7" or opcion == "07":
                 print(colored("\n%s [INFO] By Andrés Hernández Mata | Versión 3.5.0 | LSTI" % datetime.now(), "blue", attrs=["bold"]))
                 print(colored("%s [INFO] Gracias" % datetime.now(), "blue", attrs=["bold"]))
                 break
