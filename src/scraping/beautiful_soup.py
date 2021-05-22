@@ -43,7 +43,7 @@ class Beautiful:
 		opcion = 0
 		try:
 			while True:
-				print(colored("[01] Beautiful Soup", "green", attrs=["bold"]))
+				print(colored("[01] Recolección de información", "green", attrs=["bold"]))
 				print(colored("[02] Salir", "green", attrs=["bold"]))
 				beautiful = Beautiful()
 				scraping = Scraping()

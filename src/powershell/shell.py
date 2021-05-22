@@ -7,7 +7,6 @@ Fecha: 21 Mayo 2021
 """
 
 import subprocess
-import os
 import logging
 from datetime import datetime
 from termcolor import colored
