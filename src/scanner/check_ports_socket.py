@@ -16,7 +16,7 @@ class Puerto:
     
     def check_ports_socket(self, ip, portlist):
         try:
-            print("-------------------------------------------------------")
+            print("----------------------------------------------------------")
             for port in portlist:
                 sock= socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 sock.settimeout(5)
@@ -25,7 +25,7 @@ class Puerto:
                     print(colored("{} [INFO] Puerto {}:\tAbierto".format(datetime.now(), port), "green", attrs=["bold"]))
                 else:
                     print(colored("{} [INFO] Puerto {}:\tCerrado".format(datetime.now(), port), "green", attrs=["bold"]))
-            print("-------------------------------------------------------\n")
+            print("----------------------------------------------------------\n")
         except socket.error as error:
             logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))

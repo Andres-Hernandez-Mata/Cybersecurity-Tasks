@@ -12,6 +12,7 @@ import logging
 from termcolor import colored
 from datetime import datetime
 from scanner.check_ports_socket import Puerto
+from scanner.scanner_nmap import ScannerNmap
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", format="%(asctime)s %(levelname)s:%(message)s")
@@ -62,14 +63,18 @@ class Escaneo:
         print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))        
         try:
             while True:
-                print(colored("[01] Escanear puerto con socket", "green", attrs=["bold"]))
-                print(colored("[02] Salir", "green", attrs=["bold"]))
+                print(colored("[01] Socket", "green", attrs=["bold"]))
+                print(colored("[02] Nmap", "green", attrs=["bold"]))
+                print(colored("[03] Salir", "green", attrs=["bold"]))
                 opcion = str()
                 escaneo = Escaneo()
                 opcion = escaneo.option()
                 if opcion == "1" or opcion == "01":
                     escaneo.escanear()
                 elif opcion == "2" or opcion == "02":
+                    scanner_nmap = ScannerNmap()
+                    scanner_nmap.scanner_nmap()
+                elif opcion == "3" or opcion == "03":
                     clear()
                     break
                 else:                    
