@@ -1,7 +1,7 @@
 """
 Uso: Menú principal
 Creador: Andrés Hernández Mata
-Version: 3.5.0
+Version: 4.0.0
 Python: 3.8.5
 Fecha: 05 Marzo 2021
 """
@@ -19,6 +19,7 @@ from metadata.metadata import Metadata
 from scraping.beautiful_soup import Beautiful
 from scraping.scraping import Scraping
 from api.shodan import Shodan
+from powershell.powershell import PowerShell
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", format="%(asctime)s %(levelname)s:%(message)s")
@@ -70,7 +71,8 @@ def main():
             print(colored("[04] Envío de Correos", "green", attrs=["bold"]))
             print(colored("[05] Obtención de Metadatos", "green", attrs=["bold"]))
             print(colored("[06] API de Shodan", "green", attrs=["bold"]))
-            print(colored("[07] Salir", "green", attrs=["bold"]))
+            print(colored("[07] Uso de Windows PowerShell", "green", attrs=["bold"]))
+            print(colored("[08] Salir", "green", attrs=["bold"]))
             opcion = str()
             opcion = option()            
             if opcion == "1" or opcion == "01":
@@ -98,7 +100,11 @@ def main():
                 shodan = Shodan()
                 shodan.menu()
             elif opcion == "7" or opcion == "07":
-                print(colored("\n%s [INFO] By Andrés Hernández Mata | Versión 3.5.0 | LSTI" % datetime.now(), "blue", attrs=["bold"]))
+                print(colored("%s Uso de Windows PowerShell" % datetime.now(), "red", attrs=["bold"]))
+                powershell = PowerShell()
+                powershell.menu()
+            elif opcion == "8" or opcion == "08":
+                print(colored("\n%s [INFO] By Andrés Hernández Mata | Versión 4.0.0 | LSTI" % datetime.now(), "green", attrs=["bold"]))
                 print(colored("%s [INFO] Gracias" % datetime.now(), "blue", attrs=["bold"]))
                 break
             else:

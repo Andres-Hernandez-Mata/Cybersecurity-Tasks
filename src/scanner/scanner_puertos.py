@@ -24,7 +24,7 @@ class Escaneo:
                 ip = input("\nTarget > ")
                 port_list = input("Puertos > ")
                 if not ip or not port_list:
-                    print(colored("\n%s [INFO] El target y el puerto son datos obligatorios" % datetime.now(), "red", attrs=["bold"]))
+                    print(colored("%s [INFO] El target y el puerto son datos obligatorios \n" % datetime.now(), "red", attrs=["bold"]))
                 else:
                     break
             
