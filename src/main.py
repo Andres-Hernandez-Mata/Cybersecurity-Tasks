@@ -21,6 +21,7 @@ from scraping.scraping import Scraping
 from api.shodan import Shodan
 from powershell.powershell import PowerShell
 from scapydot11.scapy_dot11 import ScapyDot11
+from hash.hash import Hash
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", format="%(asctime)s %(levelname)s:%(message)s")
@@ -112,6 +113,8 @@ def main():
                 scapy_dot.menu()
             elif opcion == "9" or opcion == "09":
                 print(colored("%s Hash SHA512" % datetime.now(), "green", attrs=["bold"]))
+                hash = Hash()
+                hash.menu()
             elif opcion == "10":
                 print(colored("\n%s [INFO] By Andrés Hernández Mata | Versión 4.5.0 | LSTI" % datetime.now(), "green", attrs=["bold"]))
                 print(colored("%s [INFO] Gracias" % datetime.now(), "green", attrs=["bold"]))
