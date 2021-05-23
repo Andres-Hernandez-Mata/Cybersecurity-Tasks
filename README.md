@@ -5,6 +5,15 @@ Proyecto Integrador de Programacion para Ciberseguridad
 Web scraping es el proceso de recopilar información desde Internet. Es como copiar el contenido de una página Web y pegarlo en un documento de Word, pero de forma automatizada con un programa.
 
 ## Escaneo de Puertos
+Un socket funciona estableciendo un enlace de comunicación de red bidireccional entre el extremo del servidor y el programa receptor del cliente.
+Los sockets se crean y se utilizan con un sistema de peticiones o de llamadas de función a veces llamados interfaz de programación de aplicaciones de sockets (API, application programming interface).
+
+En conclusión un socket es una interfaz de entrada-salida de datos que permite la intercomunicación entre proceso.
+
+Hay dos tipos de sockets que son especialmente importantes: Streams y Datagrams
+
+- Los sockets stream son los más utilizados, hacen uso del protocolo TCP, el cual nos provee un flujo de datos bidireccional, secuenciado, sin duplicación de paquetes y libre de errores.
+- Los sockets Datagram hacen uso del protocolo UDP, el cual nos provee un flujo de datos bidireccional, pero los paquetes pueden llegar fuera de secuencia, pueden no llegar o contener errores. Se llaman también sockets sin conexión, porque no hay que mantener una conexión activa, como en el caso de sockets stream. Son utilizados por transferencia de información paquete por paquete.
 
 Nmap es un potente escáner de puertos que permite identificar puertos abiertos, cerrados o filtrados, así como programar rutinas para encontrar posibles vulnerabilidades en un host determinado.
 
