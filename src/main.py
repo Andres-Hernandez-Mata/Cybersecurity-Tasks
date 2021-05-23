@@ -35,9 +35,7 @@ def arg():
         url = params.url
         if url:
             scraping = Scraping()
-            scraping.scraping_beautiful_soup(url)
-            scraping.scraping_pdf(url)
-            scraping.scraping_links(url)
+            scraping.requests_get(url)
             quit()
 
     except Exception as error:
