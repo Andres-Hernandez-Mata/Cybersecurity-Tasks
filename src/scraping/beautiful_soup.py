@@ -24,7 +24,7 @@ class Beautiful:
 			while True:
 				opcion = input("[**] Elige una opción > ")
 				if not opcion:
-					print(colored("\n%s [INFO] Seleccionar una opción del menú" % datetime.now(), "red", attrs=["bold"]))
+					print(colored("%s [INFO] Seleccionar una opción del menú \n" % datetime.now(), "red", attrs=["bold"]))
 				else:
 					break
 		
@@ -54,8 +54,8 @@ class Beautiful:
 					clear()
 					break
 				else:
-					print(colored("\n%s [INFO] Introduce una opción valida del menú" % datetime.now(), "red", attrs=["bold"]))
+					print(colored("%s [INFO] Introduce una opción valida del menú \n" % datetime.now(), "red", attrs=["bold"]))
 		except Exception as error:
 			logging.error(error, exc_info=True)
 			print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-			print(colored(error, "red", attrs=["bold"]))
+			print(colored("{}\n".format(error), "red", attrs=["bold"]))

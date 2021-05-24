@@ -41,7 +41,7 @@ class Imagenes:
         except Exception as error:
             logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored("{}".format(error), "red", attrs=["bold"]))            
+            print(colored("{}\n".format(error), "red", attrs=["bold"]))            
     
     def get_exif_metadata(self, image_path):
         try:
@@ -60,7 +60,7 @@ class Imagenes:
         except Exception as error:
             logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored("{}".format(error), "red", attrs=["bold"]))
+            print(colored("{}\n".format(error), "red", attrs=["bold"]))
 
     def get_metadata_imagenes(self):                
         try:

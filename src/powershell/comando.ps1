@@ -2,6 +2,7 @@
     Autor: Andrés Hernández Mata
     Fecha: 21/05/2021
     Version: 1.0.0
+    Comando: Get-Service | Where-Object {$_.Status -eq 'Running'}
 #>
 
 param(    

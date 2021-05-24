@@ -45,11 +45,11 @@ class ScannerNmap:
                 print(colored("{} [INFO] State: {}".format(datetime.now(), scanner[host].state()), "green", attrs=["bold"]))
                 for proto in scanner[host].all_protocols():
                     print("--------------------------------------------------------------------------------------")
-                    print(colored("{} [INFO] Protocol: ".format(datetime.now(), proto), "cyan", attrs=["bold"]))
+                    print(colored("{} [INFO] Protocol: {}".format(datetime.now(), proto), "cyan", attrs=["bold"]))
                     lport = scanner[host][proto].keys()
                     for port in lport:                    
                         print(colored("{} [INFO] Port: {}\tState: {}\tName: {}".format(datetime.now(), port, scanner[host][proto][port]["state"], scanner[host][proto][port]["name"]), "cyan", attrs=["bold"]))        
-            print("--------------------------------------------------------------------------------------\n")
+            print()
             file = open("nmap.csv","w")
             file.write(scanner.csv())
 

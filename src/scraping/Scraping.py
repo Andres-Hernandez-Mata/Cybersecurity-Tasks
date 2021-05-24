@@ -50,7 +50,7 @@ class Scraping:
         except Exception as error:
             logging.error(error, exc_info=True)           
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored(error, "red", attrs=["bold"]))      
+            print(colored("{}\n".format(error), "red", attrs=["bold"]))      
             
     def scraping_pdf(self, url, response):        
         print(colored("%s [INFO] Obteniendo los pdf's de %s" % (datetime.now(), url), "green", attrs=["bold"]))
@@ -83,7 +83,7 @@ class Scraping:
         except Exception as error:
             logging.error(error, exc_info=True)          
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored(error, "red", attrs=["bold"]))                    
+            print(colored("{}\n".format(error), "red", attrs=["bold"]))                    
 
     def scraping_links(self, url, response):        
         print(colored("%s [INFO] Obteniendo los links de %s" % (datetime.now(), url), "green", attrs=["bold"]))
@@ -115,7 +115,7 @@ class Scraping:
         except Exception as error:
             logging.error(error, exc_info=True)     
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored(error, "red", attrs=["bold"]))
+            print(colored("{}\n".format(error), "red", attrs=["bold"]))
 
     def url(self):
         try:
@@ -131,5 +131,5 @@ class Scraping:
         except Exception as error:
             logging.error(error, exc_info=True)     
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored(error, "red", attrs=["bold"]))
+            print(colored("{}\n".format(error), "red", attrs=["bold"]))
 

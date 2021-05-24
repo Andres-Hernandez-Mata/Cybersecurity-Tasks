@@ -25,7 +25,7 @@ logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", form
 class Correo:  
 
     def send(self):        
-        print(colored("\n%s [INFO] Envío de correos con datos adjuntos" % datetime.now(), "green", attrs=["bold"]))
+        print(colored("%s [INFO] Envío de correos con datos adjuntos" % datetime.now(), "green", attrs=["bold"]))
         print(colored("%s [INFO] Iniciar sesión ...\n" % datetime.now(), "green", attrs=["bold"]))
         while True:        
             sender_email = input("From > ")    
@@ -52,14 +52,16 @@ class Correo:
                 if not image:     
                     print(colored("%s [INFO] La imagen es un dato obligatorio \n" % datetime.now(), "red", attrs=["bold"]))
                 elif not pathImage.exists(): 
-                    print(colored("%s [INFO] La imagen ingresa no existe en el sistema \n" % datetime.now(), "red", attrs=["bold"]))
+                    print(colored("%s [INFO] La imagen ingresada no existe en el sistema \n" % datetime.now(), "red", attrs=["bold"]))
+                elif not os.path.isfile(pathImage):
+                    print(colored("%s [INFO] La imagen ingresada no es una imagen valida \n" % datetime.now(), "red", attrs=["bold"]))
                 else:
                     break
         
         except Exception as error:
             logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored(error, "red", attrs=["bold"]))
+            print(colored("{}\n".format(error), "red", attrs=["bold"]))
 
         nombre = input("Nombre > ")
 
@@ -94,7 +96,7 @@ class Correo:
             server = smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context)        
             server.login(sender_email, password)
             server.sendmail(sender_email, receiver_email, message.as_string())
-            print(colored("%s [INFO] El correo se envio correctamente" % datetime.now(), "green", attrs=["bold"]))
+            print(colored("%s [INFO] El correo se envio correctamente \n" % datetime.now(), "green", attrs=["bold"]))
         
         except Exception as error:
             logging.error(error, exc_info=True)
@@ -106,7 +108,7 @@ class Correo:
             while True:
                 opcion = input("[**] Elige una opción > ")
                 if not opcion:
-                    print(colored("\n%s [INFO] Seleccionar una opción del menú" % datetime.now(), "red", attrs=["bold"]))
+                    print(colored("%s [INFO] Seleccionar una opción del menú \n" % datetime.now(), "red", attrs=["bold"]))
                 else:
                     break    
         
@@ -135,11 +137,11 @@ class Correo:
                     clear()
                     break
                 else:                    
-                    print(colored("\n%s [INFO] Introduce una opción valida del menú" % datetime.now(), "red", attrs=["bold"]))
+                    print(colored("%s [INFO] Introduce una opción valida del menú \n" % datetime.now(), "red", attrs=["bold"]))
         
         except Exception as error:
             logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored(error, "red", attrs=["bold"]))
+            print(colored("{}\n".format(error), "red", attrs=["bold"]))
 
       

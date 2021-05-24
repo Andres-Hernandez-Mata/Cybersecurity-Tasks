@@ -27,7 +27,7 @@ class Spanish:
         except Exception as error:
             logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored(error, "red", attrs=["bold"])) 
+            print(colored("{}\n".format(error), "red", attrs=["bold"])) 
 
         return spanish_words    
 
@@ -50,7 +50,7 @@ class Spanish:
         except Exception as error:
             logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored(error, "red", attrs=["bold"]))
+            print(colored("{}\n".format(error), "red", attrs=["bold"]))
 
         return float(matches) / len(possible_words)
 
@@ -66,7 +66,7 @@ class Spanish:
         except Exception as error:
             logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored(error, "red", attrs=["bold"]))
+            print(colored("{}\n".format(error), "red", attrs=["bold"]))
         
         return ''.join(letters_only)
 
@@ -81,6 +81,6 @@ class Spanish:
         except Exception as error:
             logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored(error, "red", attrs=["bold"]))
+            print(colored("{}\n".format(error), "red", attrs=["bold"]))
 
         return words_match and letters_match

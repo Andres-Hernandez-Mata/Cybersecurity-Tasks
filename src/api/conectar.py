@@ -27,7 +27,7 @@ class Conectar:
         except Exception as error:
             logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored(error, "red", attrs=["bold"]))
+            print(colored("{}\n".format(error), "red", attrs=["bold"]))
         
         return key
     
@@ -43,7 +43,7 @@ class Conectar:
         except Exception as error:
             logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored(error, "red", attrs=["bold"]))
+            print(colored("{}\n".format(error), "red", attrs=["bold"]))
         
         return buscar
     
@@ -62,6 +62,5 @@ class Conectar:
         except Exception as error:
             logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored(error, "red", attrs=["bold"]))
-
+            print(colored("{}\n".format(error), "red", attrs=["bold"]))
 

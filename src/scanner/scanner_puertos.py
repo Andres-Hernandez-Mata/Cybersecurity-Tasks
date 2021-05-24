@@ -25,7 +25,7 @@ class Escaneo:
                 ip = input("\nTarget > ")
                 port_list = input("Puertos > ")
                 if not ip or not port_list:
-                    print(colored("%s [INFO] El target y el puerto son datos obligatorios \n" % datetime.now(), "red", attrs=["bold"]))
+                    print(colored("%s [INFO] El target y el puerto son datos obligatorios" % datetime.now(), "red", attrs=["bold"]))
                 else:
                     break
             
@@ -48,7 +48,7 @@ class Escaneo:
                 opcion = input("[**] Elige una opción > ")
                 if opcion:                
                     break
-                print(colored("\n%s [INFO] Seleccionar una opción del menú" % datetime.now(), "red", attrs=["bold"]))
+                print(colored("%s [INFO] Seleccionar una opción del menú \n" % datetime.now(), "red", attrs=["bold"]))
         
         except Exception as error:
             logging.error(error, exc_info=True)
@@ -78,10 +78,10 @@ class Escaneo:
                     clear()
                     break
                 else:                    
-                    print(colored("\n%s [INFO] Introduce una opcion valida del menú" % datetime.now(), "red", attrs=["bold"]))
+                    print(colored("%s [INFO] Introduce una opcion valida del menú \n" % datetime.now(), "red", attrs=["bold"]))
         
         except Exception as error:
             logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored(error, "red", attrs=["bold"]))
+            print(colored("{}\n".format(error), "red", attrs=["bold"]))
 
