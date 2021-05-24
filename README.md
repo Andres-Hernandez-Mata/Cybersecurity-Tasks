@@ -1,5 +1,5 @@
 # Cybersecurity Tasks
-Proyecto Integrador de Programacion para Ciberseguridad
+Proyecto Integrador de Programacion para Ciberseguridad.
 
 ## Web Scraping
 Web scraping es el proceso de recopilar información desde Internet. Es como copiar el contenido de una página Web y pegarlo en un documento de Word, pero de forma automatizada con un programa.
@@ -10,7 +10,7 @@ Los sockets se crean y se utilizan con un sistema de peticiones o de llamadas de
 
 En conclusión un socket es una interfaz de entrada-salida de datos que permite la intercomunicación entre proceso.
 
-Hay dos tipos de sockets que son especialmente importantes: Streams y Datagrams
+Hay dos tipos de sockets que son especialmente importantes: Streams y Datagrams.
 
 - Los sockets stream son los más utilizados, hacen uso del protocolo TCP, el cual nos provee un flujo de datos bidireccional, secuenciado, sin duplicación de paquetes y libre de errores.
 - Los sockets Datagram hacen uso del protocolo UDP, el cual nos provee un flujo de datos bidireccional, pero los paquetes pueden llegar fuera de secuencia, pueden no llegar o contener errores. Se llaman también sockets sin conexión, porque no hay que mantener una conexión activa, como en el caso de sockets stream. Son utilizados por transferencia de información paquete por paquete.
@@ -21,7 +21,7 @@ Nmap es un potente escáner de puertos que permite identificar puertos abiertos,
 El cifrado César es un algoritmo criptográfico por sustitución que se usó en la antigüedad para enviar mensajes secretos. Consiste en reemplazar cada letra del mensaje original por la letra que está tres posiciones después en el alfabeto. Por ejemplo, la letra a se sustituye por d, la letra b por e, y así sucesivamente. Aunque originalmente este cifrado desplaza tres posiciones (es decir, la llave es 3), puede definirse cualquier tamaño de llave.
 
 ## Envío de Correos
-Envío de correos con datos adjuntos
+Envío de correos con datos adjuntos.
 
 En ocasiones, para algunas tareas en Ciberseguridad y en TI en general, requerimos contar con herramientas para el manejo automatizado de del correo electrónico.
 
