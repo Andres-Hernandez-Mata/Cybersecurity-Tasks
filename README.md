@@ -63,6 +63,13 @@ El módulo hashlib (incluido en la distribución estándar de Python) proporcion
 ## Versión
 - Python 3.9.1
 
+## Instalación
+```python	
+
+> pip install -r requirements.txt
+
+```
+
 ## Ejecución
 Ejecutar el script que se encuentra en la carpeta src del repositorio.
 
