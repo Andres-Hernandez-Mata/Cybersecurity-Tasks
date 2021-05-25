@@ -51,7 +51,7 @@ class Cesar:
     def hackear(self):        
         try:
             while True:            
-                mensaje = input("Mensaje > ")                
+                mensaje = input("\nMensaje > ")                
                 if mensaje:
                     break
                 print(colored("%s [INFO] El mensaje es un dato obligatorio" % datetime.now(), "red", attrs=["bold"]))        
@@ -150,8 +150,8 @@ class Cesar:
                     if resultado == None:
                         print(colored("%s [INFO] Posiblemente el mensaje descifrado no es parte del diccionario español \n" % datetime.now(), "green", attrs=["bold"]))                    
                     else:
-                        print(colored("%s [INFO] %s " % (datetime.now(), mensaje), "red", attrs=["bold"]))
-                        print(colored("%s [INFO] %s \n" % (datetime.now(), resultado), "red", attrs=["bold"]))
+                        print(colored("%s [INFO] %s " % (datetime.now(), mensaje), "green", attrs=["bold"]))
+                        print(colored("%s [INFO] %s \n" % (datetime.now(), resultado), "green", attrs=["bold"]))
                 elif opcion == "4" or opcion == "04":                                        
                     clear()
                     break
