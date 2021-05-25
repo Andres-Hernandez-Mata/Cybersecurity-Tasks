@@ -1,0 +1,8 @@
+[+] Metadata for file: C:\Users\andres\Downloads\pdf\CCNA1 v5 pdf.pdf 
+[+] /Title : CCNA Routing and Switching. Introduction to Networks 
+[+] /Author : Akin Ramirez;Nicolás Contador 
+[+] /Keywords : CCNA 1 V5 ESPAÑOL. INTRODUCTION TO NETWORKS 
+[+] /Creator : Microsoft® Word 2013 
+[+] /CreationDate : D:20140926115636-03'00' 
+[+] /ModDate : D:20140926115636-03'00' 
+[+] /Producer : Microsoft® Word 2013 

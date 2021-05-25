@@ -1,0 +1,215 @@
+.\20190513_104551.jpg
+[+] Metadata for file: 20190513_104551.jpg 
+Metadata: ImageWidth - Value: 4032 
+Metadata: ImageLength - Value: 3024 
+Metadata: GPSInfo - Value: {'Lat': 48.8573785, 'Lng': 2.296264299722222} 
+Metadata: ResolutionUnit - Value: 2 
+Metadata: ExifOffset - Value: 238 
+Metadata: Make - Value: samsung 
+Metadata: Model - Value: SM-G970F 
+Metadata: Software - Value: G970FXXU1ASD5 
+Metadata: Orientation - Value: 6 
+Metadata: DateTime - Value: 2019:05:13 10:45:51 
+Metadata: YCbCrPositioning - Value: 1 
+Metadata: XResolution - Value: 72.0 
+Metadata: YResolution - Value: 72.0 
+Metadata: ExifVersion - Value: b'0220' 
+Metadata: ShutterSpeedValue - Value: 0.0007575757575757576 
+Metadata: ApertureValue - Value: 2.52 
+Metadata: DateTimeOriginal - Value: 2019:05:13 10:45:51 
+Metadata: DateTimeDigitized - Value: 2019:05:13 10:45:51 
+Metadata: BrightnessValue - Value: 22.45 
+Metadata: ExposureBiasValue - Value: 0.0 
+Metadata: MaxApertureValue - Value: 2.52 
+Metadata: MeteringMode - Value: 2 
+Metadata: Flash - Value: 0 
+Metadata: FocalLength - Value: 4.32 
+Metadata: ColorSpace - Value: 1 
+Metadata: ExifImageWidth - Value: 4032 
+Metadata: DigitalZoomRatio - Value: 1.0 
+Metadata: FocalLengthIn35mmFilm - Value: 26 
+Metadata: SceneCaptureType - Value: 0 
+Metadata: ExifImageHeight - Value: 3024 
+Metadata: ExposureTime - Value: 0.0007575757575757576 
+Metadata: FNumber - Value: 2.4 
+Metadata: ImageUniqueID - Value: L12XLLD00SM 
+Metadata: ExposureProgram - Value: 2 
+Metadata: ISOSpeedRatings - Value: 50 
+Metadata: ExposureMode - Value: 0 
+Metadata: WhiteBalance - Value: 0 
+.\20191018_192830.jpg
+[+] Metadata for file: 20191018_192830.jpg 
+Metadata: ImageWidth - Value: 4032 
+Metadata: ImageLength - Value: 3024 
+Metadata: GPSInfo - Value: {'Lat': 25.7255408, 'Lng': -100.31533249972222} 
+Metadata: ResolutionUnit - Value: 2 
+Metadata: ExifOffset - Value: 238 
+Metadata: Make - Value: samsung 
+Metadata: Model - Value: SM-G970F 
+Metadata: Software - Value: G970FXXU3ASIG 
+Metadata: Orientation - Value: 1 
+Metadata: DateTime - Value: 2019:10:18 19:28:29 
+Metadata: YCbCrPositioning - Value: 1 
+Metadata: XResolution - Value: 72.0 
+Metadata: YResolution - Value: 72.0 
+Metadata: ExifVersion - Value: b'0220' 
+Metadata: ShutterSpeedValue - Value: 0.016666666666666666 
+Metadata: ApertureValue - Value: 2.52 
+Metadata: DateTimeOriginal - Value: 2019:10:18 19:28:29 
+Metadata: DateTimeDigitized - Value: 2019:10:18 19:28:29 
+Metadata: BrightnessValue - Value: 5.48 
+Metadata: ExposureBiasValue - Value: 0.0 
+Metadata: MaxApertureValue - Value: 2.52 
+Metadata: MeteringMode - Value: 2 
+Metadata: Flash - Value: 0 
+Metadata: FocalLength - Value: 4.32 
+Metadata: ColorSpace - Value: 1 
+Metadata: ExifImageWidth - Value: 4032 
+Metadata: DigitalZoomRatio - Value: 1.0 
+Metadata: FocalLengthIn35mmFilm - Value: 26 
+Metadata: SceneCaptureType - Value: 0 
+Metadata: ExifImageHeight - Value: 3024 
+Metadata: ExposureTime - Value: 0.016666666666666666 
+Metadata: FNumber - Value: 2.4 
+Metadata: ImageUniqueID - Value: L12XLLD00SM 
+Metadata: ExposureProgram - Value: 2 
+Metadata: ISOSpeedRatings - Value: 200 
+Metadata: ExposureMode - Value: 0 
+Metadata: WhiteBalance - Value: 0 
+.\20191227_155214.jpg
+[+] Metadata for file: 20191227_155214.jpg 
+Metadata: ImageWidth - Value: 4032 
+Metadata: ImageLength - Value: 3024 
+Metadata: GPSInfo - Value: {'Lat': 25.719213199722223, 'Lng': -100.3653683} 
+Metadata: ResolutionUnit - Value: 2 
+Metadata: ExifOffset - Value: 238 
+Metadata: Make - Value: samsung 
+Metadata: Model - Value: SM-G970F 
+Metadata: Software - Value: G970FXXU3BSKO 
+Metadata: Orientation - Value: 6 
+Metadata: DateTime - Value: 2019:12:27 15:52:12 
+Metadata: YCbCrPositioning - Value: 1 
+Metadata: XResolution - Value: 72.0 
+Metadata: YResolution - Value: 72.0 
+Metadata: ExifVersion - Value: b'0220' 
+Metadata: ShutterSpeedValue - Value: 0.016666666666666666 
+Metadata: ApertureValue - Value: 1.16 
+Metadata: DateTimeOriginal - Value: 2019:12:27 15:52:12 
+Metadata: DateTimeDigitized - Value: 2019:12:27 15:52:12 
+Metadata: ExposureBiasValue - Value: 0.0 
+Metadata: MaxApertureValue - Value: 2.52 
+Metadata: MeteringMode - Value: 2 
+Metadata: ColorSpace - Value: 1 
+Metadata: Flash - Value: 0 
+Metadata: FocalLength - Value: 4.32 
+Metadata: ExifImageWidth - Value: 4032 
+Metadata: ExifImageHeight - Value: 3024 
+Metadata: DigitalZoomRatio - Value: 1.0 
+Metadata: FocalLengthIn35mmFilm - Value: 26 
+Metadata: SceneCaptureType - Value: 0 
+Metadata: ExposureTime - Value: 0.016666666666666666 
+Metadata: FNumber - Value: 1.5 
+Metadata: ImageUniqueID - Value: L12XLLD00SM 
+Metadata: ExposureProgram - Value: 2 
+Metadata: ISOSpeedRatings - Value: 640 
+Metadata: ExposureMode - Value: 0 
+Metadata: WhiteBalance - Value: 0 
+.\20200102_110909.jpg
+[+] Metadata for file: 20200102_110909.jpg 
+Metadata: GPSInfo - Value: {'Lat': 33.8058636, 'Lng': -117.9206596} 
+Metadata: ResolutionUnit - Value: 2 
+Metadata: ExifOffset - Value: 214 
+Metadata: Make - Value: samsung 
+Metadata: Model - Value: SM-G970F 
+Metadata: Software - Value: G970FXXU3BSKO 
+Metadata: Orientation - Value: 1 
+Metadata: DateTime - Value: 2020:01:02 11:09:09 
+Metadata: YCbCrPositioning - Value: 1 
+Metadata: XResolution - Value: 72.0 
+Metadata: YResolution - Value: 72.0 
+Metadata: ExifVersion - Value: b'0220' 
+Metadata: ComponentsConfiguration - Value: b'\x01\x02\x03\x00' 
+Metadata: ShutterSpeedValue - Value: 8.42 
+Metadata: DateTimeOriginal - Value: 2020:01:02 11:09:09 
+Metadata: DateTimeDigitized - Value: 2020:01:02 11:09:09 
+Metadata: ApertureValue - Value: 1.16 
+Metadata: BrightnessValue - Value: 5.85 
+Metadata: ExposureBiasValue - Value: 0.2 
+Metadata: MaxApertureValue - Value: 1.16 
+Metadata: MeteringMode - Value: 1 
+Metadata: Flash - Value: 0 
+Metadata: FocalLength - Value: 4.32 
+Metadata: UserComment - Value: b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00' 
+Metadata: ColorSpace - Value: 1 
+Metadata: ExifImageWidth - Value: 4032 
+Metadata: SceneCaptureType - Value: 0 
+Metadata: SubsecTime - Value: 0271 
+Metadata: SubsecTimeOriginal - Value: 0271 
+Metadata: SubsecTimeDigitized - Value: 0271 
+Metadata: ExifImageHeight - Value: 3024 
+Metadata: ExposureTime - Value: 0.002898550724637681 
+Metadata: ExifInteroperabilityOffset - Value: 796 
+Metadata: FNumber - Value: 1.5 
+Metadata: SceneType - Value: b'\x01\x00\x00\x00' 
+Metadata: ImageUniqueID - Value: L12XLLD00SM 
+Metadata: ExposureProgram - Value: 2 
+Metadata: ISOSpeedRatings - Value: 50 
+Metadata: ExposureMode - Value: 0 
+Metadata: FlashPixVersion - Value: b'0100' 
+Metadata: WhiteBalance - Value: 0 
+Metadata: DigitalZoomRatio - Value: nan 
+Metadata: FocalLengthIn35mmFilm - Value: 26 
+Metadata: Contrast - Value: 0 
+Metadata: Saturation - Value: 0 
+Metadata: Sharpness - Value: 0 
+.\20200703_161432.jpg
+[+] Metadata for file: 20200703_161432.jpg 
+Metadata: ImageWidth - Value: 4032 
+Metadata: ImageLength - Value: 3024 
+Metadata: GPSInfo - Value: {'Lat': 25.8041563, 'Lng': -100.3106975} 
+Metadata: ResolutionUnit - Value: 2 
+Metadata: ExifOffset - Value: 237 
+Metadata: Make - Value: samsung 
+Metadata: Model - Value: SM-G970F 
+Metadata: Software - Value: G970FXXU7CTF1 
+Metadata: Orientation - Value: 6 
+Metadata: YCbCrPositioning - Value: 1 
+Metadata: DateTime - Value: 2020:07:03 16:14:31 
+Metadata: XResolution - Value: 72.0 
+Metadata: YResolution - Value: 72.0 
+Metadata: ExifVersion - Value: b'0220' 
+Metadata: ShutterSpeedValue - Value: 7.92 
+Metadata: ApertureValue - Value: 2.52 
+Metadata: DateTimeOriginal - Value: 2020:07:03 16:14:31 
+Metadata: DateTimeDigitized - Value: 2020:07:03 16:14:31 
+Metadata: BrightnessValue - Value: 6.31 
+Metadata: ExposureBiasValue - Value: 0.0 
+Metadata: MaxApertureValue - Value: 1.16 
+Metadata: MeteringMode - Value: 2 
+Metadata: Flash - Value: 1 
+Metadata: FlashPixVersion - Value: b'0100' 
+Metadata: FocalLength - Value: 4.32 
+Metadata: UserComment - Value: b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00' 
+Metadata: ColorSpace - Value: 1 
+Metadata: ComponentsConfiguration - Value: b'\x01\x02\x03\x00' 
+Metadata: ExifImageWidth - Value: 4032 
+Metadata: SubsecTime - Value: 0793 
+Metadata: SubsecTimeOriginal - Value: 0793 
+Metadata: SubsecTimeDigitized - Value: 0793 
+Metadata: ExifImageHeight - Value: 3024 
+Metadata: ExposureTime - Value: 0.004132231404958678 
+Metadata: ExifInteroperabilityOffset - Value: 827 
+Metadata: FNumber - Value: 2.4 
+Metadata: SceneType - Value: b'\x01\x00\x00\x00' 
+Metadata: ImageUniqueID - Value: L12XLLD00SM 
+Metadata: ExposureProgram - Value: 2 
+Metadata: CustomRendered - Value: 0 
+Metadata: ISOSpeedRatings - Value: 50 
+Metadata: ExposureMode - Value: 0 
+Metadata: WhiteBalance - Value: 0 
+Metadata: DigitalZoomRatio - Value: nan 
+Metadata: FocalLengthIn35mmFilm - Value: 26 
+Metadata: SceneCaptureType - Value: 0 
+Metadata: Contrast - Value: 0 
+Metadata: Saturation - Value: 0 
+Metadata: Sharpness - Value: 0 

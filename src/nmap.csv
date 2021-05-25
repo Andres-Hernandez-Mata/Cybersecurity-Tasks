@@ -1,0 +1,9 @@
+host;hostname;hostname_type;protocol;port;name;state;product;extrainfo;reason;version;conf;cpe
+192.168.100.1;;;tcp;23;telnet;open;;;syn-ack;;3;
+192.168.100.1;;;tcp;53;domain;open;;;syn-ack;;3;
+192.168.100.1;;;tcp;80;http;open;;;syn-ack;;3;
+192.168.100.6;;;tcp;135;msrpc;open;;;syn-ack;;3;
+192.168.100.6;;;tcp;139;netbios-ssn;open;;;syn-ack;;3;
+192.168.100.6;;;tcp;445;microsoft-ds;open;;;syn-ack;;3;
+192.168.100.6;;;tcp;3306;mysql;open;;;syn-ack;;3;
+192.168.100.6;;;tcp;5357;wsdapi;open;;;syn-ack;;3;
