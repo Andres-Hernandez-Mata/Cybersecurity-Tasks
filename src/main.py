@@ -2,7 +2,7 @@
 Uso: Menú principal
 Creador: Andrés Hernández Mata
 Version: 5.0.0
-Python: 3.8.5
+Python: 3.9.1
 Fecha: 05 Marzo 2021
 """
 
@@ -40,27 +40,27 @@ def arg():
 
     except Exception as error:
         logging.error(error, exc_info=True)
-        print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))   
-        print(colored("{}\n".format(error), "red", attrs=["bold"]))    
+        print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
+        print(colored("{}\n".format(error), "red", attrs=["bold"]))
 
 def option():
     try:
         while True:
             opcion = input("[**] Elige una opción > ")
-            if opcion:  
+            if opcion:
                 break
             print(colored("\n%s [INFO] Seleccionar una opción del menú" % datetime.now(), "red", attrs=["bold"]))
-    
+
     except Exception as error:
         logging.error(error, exc_info=True)
-        print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))   
+        print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
         print(colored("{}\n".format(error), "red", attrs=["bold"]))
-    
+
     return opcion
 
 def main():
     try:
-        arg()          
+        arg()
         while True:
             clear()
             banner = header.figlet_format("Cybersecurity Tasks")
@@ -76,7 +76,7 @@ def main():
             print(colored("[09] Hash SHA512", "green", attrs=["bold"]))
             print(colored("[10] Salir", "green", attrs=["bold"]))
             opcion = str()
-            opcion = option()            
+            opcion = option()
             if opcion == "1" or opcion == "01":
                 print(colored("%s Web Scraping" % datetime.now(), "green", attrs=["bold"]))
                 beautiful = Beautiful()
@@ -85,11 +85,11 @@ def main():
                 print(colored("%s Escaneo de Puertos" % datetime.now(), "green", attrs=["bold"]))
                 escaneo = Escaneo()
                 escaneo.menu()
-            elif opcion == "3" or opcion == "03":                
+            elif opcion == "3" or opcion == "03":
                 print(colored("%s Cifrado de Mensajes" % datetime.now(), "green", attrs=["bold"]))
                 cesar = Cesar()
-                cesar.menu()                
-            elif opcion == "4" or opcion == "04": 
+                cesar.menu()
+            elif opcion == "4" or opcion == "04":
                 print(colored("%s Envío de Correos" % datetime.now(), "green", attrs=["bold"]))
                 correo = Correo()
                 correo.menu()
@@ -119,13 +119,13 @@ def main():
                 break
             else:
                 print(colored("%s [INFO] Por favor, introduce una opción valida" % datetime.now(), "red", attrs=["bold"]))
-    
+
     except Exception as error:
         logging.error(error, exc_info=True)
         print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-        print(colored(error, "red", attrs=["bold"]))        
+        print(colored(error, "red", attrs=["bold"]))
     except KeyboardInterrupt:
         quit()
 
-if __name__ == "__main__":        
+if __name__ == "__main__":
     main()
