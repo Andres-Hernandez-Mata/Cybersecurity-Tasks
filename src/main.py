@@ -22,9 +22,12 @@ from api.shodan import Shodan
 from powershell.powershell import PowerShell
 from scapydot11.scapy_dot11 import ScapyDot11
 from hash.hash import Hash
+from opcion.menu_opcion import Opcion
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", format="%(asctime)s %(levelname)s:%(message)s")
+opcion = Opcion()
+global opcion_menu
 
 def arg():
     try:
@@ -43,21 +46,6 @@ def arg():
         print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
         print(colored("{}\n".format(error), "red", attrs=["bold"]))
 
-def option():
-    try:
-        while True:
-            opcion = input("[**] Elige una opción > ")
-            if opcion:
-                break
-            print(colored("\n%s [INFO] Seleccionar una opción del menú" % datetime.now(), "red", attrs=["bold"]))
-
-    except Exception as error:
-        logging.error(error, exc_info=True)
-        print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-        print(colored("{}\n".format(error), "red", attrs=["bold"]))
-
-    return opcion
-
 def main():
     try:
         arg()
@@ -75,45 +63,44 @@ def main():
             print(colored("[08] Scapy Dot11", "green", attrs=["bold"]))
             print(colored("[09] Hash SHA512", "green", attrs=["bold"]))
             print(colored("[10] Salir", "green", attrs=["bold"]))
-            opcion = str()
-            opcion = option()
-            if opcion == "1" or opcion == "01":
+            opcion_menu = opcion.opcion()           
+            if opcion_menu == "1" or opcion_menu == "01":
                 print(colored("%s Web Scraping" % datetime.now(), "green", attrs=["bold"]))
                 beautiful = Beautiful()
                 beautiful.menu()
-            elif opcion == "2" or opcion == "02":
+            elif opcion_menu == "2" or opcion_menu == "02":
                 print(colored("%s Escaneo de Puertos" % datetime.now(), "green", attrs=["bold"]))
                 escaneo = Escaneo()
                 escaneo.menu()
-            elif opcion == "3" or opcion == "03":
+            elif opcion_menu == "3" or opcion_menu == "03":
                 print(colored("%s Cifrado de Mensajes" % datetime.now(), "green", attrs=["bold"]))
                 cesar = Cesar()
                 cesar.menu()
-            elif opcion == "4" or opcion == "04":
+            elif opcion_menu == "4" or opcion_menu == "04":
                 print(colored("%s Envío de Correos" % datetime.now(), "green", attrs=["bold"]))
                 correo = Correo()
                 correo.menu()
-            elif opcion == "5" or opcion == "05":
+            elif opcion_menu == "5" or opcion_menu == "05":
                 print(colored("%s Obtención de Metadatos" % datetime.now(), "green", attrs=["bold"]))
                 metadata = Metadata()
                 metadata.menu()
-            elif opcion == "6" or opcion == "06":
+            elif opcion_menu == "6" or opcion_menu == "06":
                 print(colored("%s API de Shodan" % datetime.now(), "green", attrs=["bold"]))
                 shodan = Shodan()
                 shodan.menu()
-            elif opcion == "7" or opcion == "07":
+            elif opcion_menu == "7" or opcion_menu == "07":
                 print(colored("%s Uso de Windows PowerShell" % datetime.now(), "green", attrs=["bold"]))
                 powershell = PowerShell()
                 powershell.menu()
-            elif opcion == "8" or opcion == "08":
+            elif opcion_menu == "8" or opcion_menu == "08":
                 print(colored("%s Scapy Dot11" % datetime.now(), "green", attrs=["bold"]))
                 scapy_dot = ScapyDot11()
                 scapy_dot.menu()
-            elif opcion == "9" or opcion == "09":
+            elif opcion_menu == "9" or opcion_menu == "09":
                 print(colored("%s Hash SHA512" % datetime.now(), "green", attrs=["bold"]))
                 hash = Hash()
                 hash.menu()
-            elif opcion == "10":
+            elif opcion_menu == "10":
                 print(colored("\n%s [INFO] By Andrés Hernández Mata | Versión 5.0.0 | LSTI" % datetime.now(), "green", attrs=["bold"]))
                 print(colored("%s [INFO] Gracias \n" % datetime.now(), "green", attrs=["bold"]))
                 break
