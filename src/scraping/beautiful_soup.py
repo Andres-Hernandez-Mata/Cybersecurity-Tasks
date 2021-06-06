@@ -18,24 +18,6 @@ logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", form
 
 class Beautiful:
 
-	def option(self):
-		try:
-			opcion = 0
-			while True:
-				opcion = input("[**] Elige una opción > ")
-				if not opcion:
-					print(colored("%s [INFO] Seleccionar una opción del menú \n" % datetime.now(), "red", attrs=["bold"]))
-				else:
-					break
-		
-		except Exception as error:
-			logging.error(error, exc_info=True)
-			print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-			print(colored("%s [ERROR] Introduce un numero entero" % datetime.now(), "red", attrs=["bold"]))
-			print(colored("{}\n".format(error), "red", attrs=["bold"]))
-	
-		return opcion
-
 	def menu(self):
 		clear()
 		banner = header.figlet_format("Web Scraping")
