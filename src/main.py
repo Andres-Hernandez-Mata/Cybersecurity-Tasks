@@ -63,7 +63,7 @@ def main():
             print(colored("[08] Scapy Dot11", "green", attrs=["bold"]))
             print(colored("[09] Hash SHA512", "green", attrs=["bold"]))
             print(colored("[10] Salir", "green", attrs=["bold"]))
-            opcion_menu = opcion.opcion()           
+            opcion_menu = opcion.opcion()
             if opcion_menu == "1" or opcion_menu == "01":
                 print(colored("%s Web Scraping" % datetime.now(), "green", attrs=["bold"]))
                 beautiful = Beautiful()
