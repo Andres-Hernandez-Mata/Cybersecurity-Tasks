@@ -12,9 +12,12 @@ import logging
 from datetime import datetime
 from termcolor import colored
 from scraping.scraping import Scraping
+from opcion.menu_opcion import Opcion
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", format="%(asctime)s %(levelname)s:%(message)s")
+opcion = Opcion()
+global opcion_menu
 
 class Beautiful:
 
@@ -22,17 +25,15 @@ class Beautiful:
 		clear()
 		banner = header.figlet_format("Web Scraping")
 		print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))
-		opcion = 0
 		try:
 			while True:
 				print(colored("[01] Recolección de información", "green", attrs=["bold"]))
 				print(colored("[02] Salir", "green", attrs=["bold"]))
-				beautiful = Beautiful()
 				scraping = Scraping()
-				opcion = beautiful.option()
-				if opcion == "1" or opcion == "01":					
+				opcion_menu = opcion.opcion()
+				if opcion_menu == "1" or opcion_menu == "01":					
 					scraping.url()
-				elif opcion == "2" or opcion == "02":
+				elif opcion_menu == "2" or opcion_menu == "02":
 					clear()
 					break
 				else:
