@@ -20,23 +20,6 @@ opcion = Opcion()
 global opcion_menu
 
 class ScapyDot11:
-
-    def option(self):
-        try:
-            while True:
-                opcion = input("[**] Elige una opción > ")
-                if not opcion:
-                    print(colored("%s [INFO] Seleccionar una opción del menú \n" % datetime.now(), "red", attrs=["bold"]))
-                else:
-                    break    
-        
-        except Exception as error:
-            logging.error(error, exc_info=True)
-            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored("%s [ERROR] Introduce un numero entero" % datetime.now(), "red", attrs=["bold"]))
-            print(colored("{}\n".format(error), "red", attrs=["bold"]))
-        
-        return opcion
     
     def menu(self):
         clear()
@@ -45,10 +28,7 @@ class ScapyDot11:
         try:
             while True:                
                 print(colored("[01] MAC address", "green", attrs=["bold"]))
-                print(colored("[02] Salir", "green", attrs=["bold"]))
-                opcion = str()
-                scapy_dot11 = ScapyDot11()
-                opcion = scapy_dot11.option()
+                print(colored("[02] Salir", "green", attrs=["bold"]))         
                 if opcion == "1" or opcion == "01":
                    network = Network()
                    network.mac_address()
