@@ -16,6 +16,7 @@ from opcion.menu_opcion import Opcion
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", format="%(asctime)s %(levelname)s:%(message)s")
+network = Network()
 opcion = Opcion()
 global opcion_menu
 
@@ -28,11 +29,11 @@ class ScapyDot11:
         try:
             while True:                
                 print(colored("[01] MAC address", "green", attrs=["bold"]))
-                print(colored("[02] Salir", "green", attrs=["bold"]))         
-                if opcion == "1" or opcion == "01":
-                   network = Network()
+                print(colored("[02] Salir", "green", attrs=["bold"]))
+                opcion_menu = opcion.opcion()
+                if opcion_menu == "1" or opcion_menu == "01":                   
                    network.mac_address()
-                elif opcion == "2" or opcion == "02":
+                elif opcion_menu == "2" or opcion_menu == "02":
                     clear()
                     break
                 else:                    
