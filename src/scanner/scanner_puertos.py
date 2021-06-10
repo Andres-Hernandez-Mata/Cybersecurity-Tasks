@@ -34,31 +34,16 @@ class Escaneo:
             
             port_list = port_list.split(",")
     
-            for i in range(len(port_list)):        
+            for i in range(len(port_list)):   
                 port_list[i] = int(port_list[i])
     
             puerto = Puerto()
-            puerto.check_ports_socket(ip, port_list)   
+            puerto.check_ports_socket(ip, port_list)
         
         except Exception as error:
             logging.error(error, exc_info=True)
             print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))
-            print(colored("{}\n".format(error), "red", attrs=["bold"]))        
-
-    def option(self):
-        try:            
-            while True:
-                opcion = input("[**] Elige una opción > ")
-                if opcion:                
-                    break
-                print(colored("%s [INFO] Seleccionar una opción del menú \n" % datetime.now(), "red", attrs=["bold"]))
-        
-        except Exception as error:
-            logging.error(error, exc_info=True)
-            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))   
             print(colored("{}\n".format(error), "red", attrs=["bold"]))
-        
-        return opcion
 
     def menu(self):
         clear()
