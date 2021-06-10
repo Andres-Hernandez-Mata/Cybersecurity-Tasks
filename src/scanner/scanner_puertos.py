@@ -17,6 +17,7 @@ from opcion.menu_opcion import Opcion
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", format="%(asctime)s %(levelname)s:%(message)s")
+scanner_nmap = ScannerNmap()
 opcion = Opcion()
 global opcion_menu
 
@@ -53,16 +54,14 @@ class Escaneo:
             while True:
                 print(colored("[01] Socket", "green", attrs=["bold"]))
                 print(colored("[02] Nmap", "green", attrs=["bold"]))
-                print(colored("[03] Salir", "green", attrs=["bold"]))
-                opcion = str()
+                print(colored("[03] Salir", "green", attrs=["bold"]))                
                 escaneo = Escaneo()
-                opcion = escaneo.option()
-                if opcion == "1" or opcion == "01":
+                opcion_menu = opcion.opcion()      
+                if opcion_menu == "1" or opcion_menu == "01":
                     escaneo.escanear()
-                elif opcion == "2" or opcion == "02":
-                    scanner_nmap = ScannerNmap()
+                elif opcion_menu == "2" or opcion_menu == "02":                    
                     scanner_nmap.scanner_nmap()
-                elif opcion == "3" or opcion == "03":
+                elif opcion_menu == "3" or opcion_menu == "03":
                     clear()
                     break
                 else:                    
