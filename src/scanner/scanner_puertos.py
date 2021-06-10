@@ -13,9 +13,12 @@ from termcolor import colored
 from datetime import datetime
 from scanner.check_ports_socket import Puerto
 from scanner.scanner_nmap import ScannerNmap
+from opcion.menu_opcion import Opcion
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", format="%(asctime)s %(levelname)s:%(message)s")
+opcion = Opcion()
+global opcion_menu
 
 class Escaneo:
 
