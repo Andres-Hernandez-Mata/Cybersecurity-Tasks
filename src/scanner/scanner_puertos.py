@@ -21,7 +21,7 @@ scanner_nmap = ScannerNmap()
 opcion = Opcion()
 global opcion_menu
 
-class Escaneo:
+class ScannerPuertos:
 
     def escanear(self):
         try:

@@ -14,7 +14,7 @@ from termcolor import colored
 from datetime import datetime
 from cifrado.cesar import Cesar
 from correo.send_email import Correo
-from scanner.scanner_puertos import Escaneo
+from scanner.scanner_puertos import ScannerPuertos
 from metadata.metadata import Metadata
 from scraping.beautiful_soup import Beautiful
 from scraping.scraping import Scraping
@@ -70,8 +70,8 @@ def main():
                 beautiful.menu()
             elif opcion_menu == "2" or opcion_menu == "02":
                 print(colored("%s Escaneo de Puertos" % datetime.now(), "green", attrs=["bold"]))
-                escaneo = Escaneo()
-                escaneo.menu()
+                scanner_puertos = ScannerPuertos()
+                scanner_puertos.menu()
             elif opcion_menu == "3" or opcion_menu == "03":
                 print(colored("%s Cifrado de Mensajes" % datetime.now(), "green", attrs=["bold"]))
                 cesar = Cesar()
