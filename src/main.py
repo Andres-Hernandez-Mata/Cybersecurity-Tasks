@@ -1,7 +1,7 @@
 """
 Uso: Menú principal
 Creador: Andrés Hernández Mata
-Version: 5.0.0
+Version: 5.5.0
 Python: 3.9.1
 Fecha: 05 Marzo 2021
 """
@@ -101,7 +101,7 @@ def main():
                 hash = Hash()
                 hash.menu()
             elif opcion_menu == "10":
-                print(colored("\n%s [INFO] By Andrés Hernández Mata | Versión 5.0.0 | LSTI" % datetime.now(), "green", attrs=["bold"]))
+                print(colored("\n%s [INFO] By Andrés Hernández Mata | Versión 5.5.0 | LSTI" % datetime.now(), "green", attrs=["bold"]))
                 print(colored("%s [INFO] Gracias \n" % datetime.now(), "green", attrs=["bold"]))
                 break
             else:
