@@ -78,3 +78,6 @@ Ejecutar el script que se encuentra en la carpeta src del repositorio.
 > python main.py
 
 ```
+
+## Menú
+
