@@ -19,22 +19,6 @@ logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", form
 
 class Metadata:
 
-    def option(self):
-        try:            
-            while True:
-                opcion = input("[**] Elige una opción > ")
-                if not opcion:
-                    print(colored("\n%s [INFO] Seleccionar una opción del menú" % datetime.now(), "red", attrs=["bold"]))
-                else:
-                    break                
-        
-        except Exception as error:
-            logging.error(error, exc_info=True)
-            print(colored("%s [ERROR] Ha ocurrido un error" % datetime.now(), "red", attrs=["bold"]))   
-            print(colored("{}\n".format(error), "red", attrs=["bold"]))
-        
-        return opcion
-
     def menu(self):
         clear()
         banner = header.figlet_format("Metadata")
