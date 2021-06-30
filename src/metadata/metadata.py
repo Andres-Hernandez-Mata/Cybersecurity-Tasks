@@ -18,6 +18,8 @@ from opcion.menu_opcion import Opcion
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", format="%(asctime)s %(levelname)s:%(message)s")
 opcion = Opcion()
+imagenes = Imagenes()
+documentos = Documentos()
 global opcion_menu
 
 class Metadata:
@@ -30,9 +32,7 @@ class Metadata:
             while True:                
                 print(colored("[01] Extraer metadata de imagenes", "green", attrs=["bold"]))
                 print(colored("[02] Extraer metadata de PDF's", "green", attrs=["bold"]))
-                print(colored("[03] Salir", "green", attrs=["bold"]))                
-                imagenes = Imagenes()
-                documentos = Documentos()
+                print(colored("[03] Salir", "green", attrs=["bold"]))
                 opcion_menu = opcion.opcion()
                 if opcion_menu == "1" or opcion_menu == "01":                    
                     imagenes.get_metadata_imagenes()
