@@ -27,21 +27,18 @@ class Metadata:
         banner = header.figlet_format("Metadata")
         print(colored(banner.rstrip("\n"), "red", attrs=["bold"]))        
         try:
-            while True:
-                src = os.getcwd()                
+            while True:                
                 print(colored("[01] Extraer metadata de imagenes", "green", attrs=["bold"]))
                 print(colored("[02] Extraer metadata de PDF's", "green", attrs=["bold"]))
-                print(colored("[03] Salir", "green", attrs=["bold"]))
-                opcion = str()
-                metadata = Metadata()
+                print(colored("[03] Salir", "green", attrs=["bold"]))                
                 imagenes = Imagenes()
                 documentos = Documentos()
-                opcion = metadata.option()
-                if opcion == "1" or opcion == "01":                    
+                opcion_menu = opcion.opcion()
+                if opcion_menu == "1" or opcion_menu == "01":                    
                     imagenes.get_metadata_imagenes()
-                elif opcion == "2" or opcion == "02":                    
+                elif opcion_menu == "2" or opcion_menu == "02":                    
                     documentos.get_metadata_pdf()
-                elif opcion == "3" or opcion == "03":
+                elif opcion_menu == "3" or opcion_menu == "03":
                     clear()
                     break
                 else:                  
