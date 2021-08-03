@@ -12,9 +12,12 @@ import logging
 from datetime import datetime
 from termcolor import colored
 from hash.sha512 import Sha512
+from opcion.menu_opcion import Opcion
 
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", format="%(asctime)s %(levelname)s:%(message)s")
+opcion = Opcion()
+global opcion_menu
 
 class Hash:
         
