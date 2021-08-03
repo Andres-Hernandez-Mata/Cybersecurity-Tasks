@@ -17,6 +17,7 @@ from opcion.menu_opcion import Opcion
 clear = lambda: os.system("cls" if os.name=="nt" else "clear")
 logging.basicConfig(level=logging.INFO, filename="cybersecurity_tasks.log", format="%(asctime)s %(levelname)s:%(message)s")
 opcion = Opcion()
+sha512 = Sha512()
 global opcion_menu
 
 class Hash:
@@ -28,14 +29,11 @@ class Hash:
         try:
             while True:                
                 print(colored("[01] SHA512", "green", attrs=["bold"]))
-                print(colored("[02] Salir", "green", attrs=["bold"]))
-                opcion = str()
-                hash = Hash()
-                opcion = hash.option()
-                if opcion == "1" or opcion == "01":
-                   sha512 = Sha512()
+                print(colored("[02] Salir", "green", attrs=["bold"]))                                
+                opcion_menu = opcion.opcion()
+                if opcion_menu == "1" or opcion_menu == "01":                   
                    sha512.hash_sha512()
-                elif opcion == "2" or opcion == "02":
+                elif opcion_menu == "2" or opcion_menu == "02":
                     clear()
                     break
                 else:                    
